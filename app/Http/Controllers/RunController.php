@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Run;
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class RunController extends Controller
 {
@@ -27,8 +28,8 @@ class RunController extends Controller
     public function create()
     {
         //
-        $user = User::all();
-        return view('runs.addrun', compact('user'));
+        $user_id = Auth::user()->id;
+        return view('runs.addrun', ['user_id' => $user_id]);
     }
 
     /**

@@ -15,7 +15,7 @@
                             <label for="date">Date</label>
                             <input type="text" name="date" class="form-control">
                         </div>
-                        {{dd($user)}}
+                        {{$user_id}}
                         <div class="form-group">
                             <label for="distance">Distance</label>
                             <input type="text" name="distance" class="form-control">
