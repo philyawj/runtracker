@@ -98,7 +98,7 @@ class RunController extends Controller
      * @param  \App\Run  $run
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Run $run)
+    public function update(RunRequest $request, Run $run)
     {
         //
         $input = $request->all();
@@ -129,5 +129,10 @@ class RunController extends Controller
     public function destroy(Run $run)
     {
         //
+        $run = Run::findOrFail($run->id);
+        
+        $run->delete();
+
+        return redirect('dashboard/run');
     }
 }
