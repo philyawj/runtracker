@@ -6,6 +6,7 @@ use App\Run;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use Carbon\Carbon;
 
 class RunController extends Controller
 {
@@ -17,7 +18,14 @@ class RunController extends Controller
     public function index()
     {
         //
-        return view('runs.index');
+        $runs = Run::all();
+
+        $now = Carbon::now();
+        // echo $now->year;
+        // echo $now->month;
+        // echo $now->weekOfYear;
+
+        return view('runs.index', compact('runs'), compact('now'));
     }
 
     /**
