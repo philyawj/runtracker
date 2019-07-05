@@ -17,6 +17,7 @@ class CreateRunsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
+            $table->date('date');
             $table->float('distance', 5, 2);
             $table->integer('seconds');
             $table->text('notes');

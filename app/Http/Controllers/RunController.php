@@ -28,8 +28,7 @@ class RunController extends Controller
     public function create()
     {
         //
-        $user_id = Auth::user()->id;
-        return view('runs.addrun', ['user_id' => $user_id]);
+        return view('runs.addrun');
     }
 
     /**
@@ -44,8 +43,9 @@ class RunController extends Controller
         $input = $request->all();
 
         $convertedSeconds = ($input['hours'] * 3600) + ($input['minutes'] * 60) + $input['seconds'];
-
         $input['seconds'] = $convertedSeconds;
+
+        $input['user_id'] = Auth::user()->id;
 
         // dd($input);
 
