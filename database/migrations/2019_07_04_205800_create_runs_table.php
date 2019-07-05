@@ -18,6 +18,9 @@ class CreateRunsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
             $table->date('date');
+            $table->integer('year');
+            $table->integer('month');
+            $table->integer('weekofyear');
             $table->float('distance', 5, 2);
             $table->integer('seconds');
             $table->text('notes');

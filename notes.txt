@@ -1,0 +1,4 @@
+ADD RUN:
+date picker
+input validtion for all types
+on phone show num pad

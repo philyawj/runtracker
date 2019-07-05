@@ -43,9 +43,9 @@
                                     <th scope="row">{{$run->id}}</th>
                                     <td>{{$run->user_id}}</td>
                                     <td>{{$run->date}}</td>
-                                    <td>{{$now->year}}</td>
-                                    <td>{{$now->month}}</td>
-                                    <td>{{$now->weekOfYear}}</td>
+                                    <td>{{$run->year}}</td>
+                                    <td>{{$run->month}}</td>
+                                    <td>{{$run->weekofyear}}</td>
                                     <td>{{$run->distance}}</td>
                                     <td>{{$run->seconds}}</td>
                                     <td>{{$run->notes}}</td>

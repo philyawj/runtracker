@@ -17,15 +17,11 @@ class RunController extends Controller
      */
     public function index()
     {
-        //
-        $runs = Run::all();
+        // only return runs from logged in user
 
-        $now = Carbon::now();
-        // echo $now->year;
-        // echo $now->month;
-        // echo $now->weekOfYear;
+        $runs = Run::all()->where('user_id', Auth::user()->id);
 
-        return view('runs.index', compact('runs'), compact('now'));
+        return view('runs.index', compact('runs'));
     }
 
     /**
@@ -54,6 +50,11 @@ class RunController extends Controller
         $input['seconds'] = $convertedSeconds;
 
         $input['user_id'] = Auth::user()->id;
+
+        $dt = Carbon::parse($input['date']);
+        $input['year'] = $dt->year;
+        $input['month'] = $dt->month;
+        $input['weekofyear'] = $dt->weekOfYear;
 
         // dd($input);
 
