@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Carbon\Carbon;
+use App\Http\Requests\RunRequest;
 
 class RunController extends Controller
 {
@@ -41,7 +42,7 @@ class RunController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RunRequest $request)
     {
         //
         $input = $request->all();

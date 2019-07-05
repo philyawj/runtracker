@@ -23,7 +23,7 @@ class CreateRunsTable extends Migration
             $table->integer('weekofyear');
             $table->float('distance', 5, 2);
             $table->integer('seconds');
-            $table->text('notes');
+            $table->text('notes')->nullable();
         });
     }
 
