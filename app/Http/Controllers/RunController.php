@@ -52,6 +52,8 @@ class RunController extends Controller
 
         $input['user_id'] = Auth::user()->id;
 
+        $input['mph'] = $input['miles'] / ($convertedSeconds / 3600);
+
         $dt = Carbon::parse($input['date']);
         $input['year'] = $dt->year;
         $input['month'] = $dt->month;

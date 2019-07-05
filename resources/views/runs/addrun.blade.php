@@ -17,8 +17,8 @@
                         </div>
                        
                         <div class="form-group">
-                            <label for="distance">Distance</label>
-                            <input type="text" name="distance" class="form-control" value={{old('distance')}}>
+                            <label for="miles">Miles</label>
+                            <input type="text" name="miles" class="form-control" value={{old('miles')}}>
                         </div>
 
                         <div class="form-group">

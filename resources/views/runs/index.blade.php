@@ -28,8 +28,9 @@
                                     <th scope="col">year</th>
                                     <th scope="col">month</th>
                                     <th scope="col">week of year</th>
-                                    <th scope="col">distance</th>
+                                    <th scope="col">miles</th>
                                     <th scope="col">seconds</th>
+                                    <th scope="col">mph</th>
                                     <th scope="col">notes</th>
                                     <th scope="col">Edit</th>
                                 </tr>
@@ -46,8 +47,9 @@
                                     <td>{{$run->year}}</td>
                                     <td>{{$run->month}}</td>
                                     <td>{{$run->weekofyear}}</td>
-                                    <td>{{$run->distance}}</td>
+                                    <td>{{$run->miles}}</td>
                                     <td>{{$run->seconds}}</td>
+                                    <td>{{$run->mph}}</td>
                                     <td>{{$run->notes}}</td>
                                     <td><a>Edit</a></td>
                                 </tr>

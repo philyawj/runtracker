@@ -9,7 +9,7 @@ class Run extends Model
     //
 
     protected $fillable = [
-        'id', 'user_id', 'distance', 'seconds', 'notes', 'date', 'year', 'month', 'weekofyear'
+        'id', 'user_id', 'miles', 'seconds', 'notes', 'date', 'year', 'month', 'weekofyear', 'mph'
     ];
 
     public function user(){

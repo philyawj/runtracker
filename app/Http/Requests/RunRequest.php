@@ -25,7 +25,7 @@ class RunRequest extends FormRequest
     {
         return [
             'date' => 'required',
-            'distance' => 'required'
+            'miles' => 'required'
         ];
     }
 }

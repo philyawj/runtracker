@@ -1,3 +1,5 @@
+add auth check on dashboard/
+
 ADD RUN:
 date picker --> and add validation to add specific format, maybe with regex
 input validtion for all types --> make seconds be at least 1, with regex

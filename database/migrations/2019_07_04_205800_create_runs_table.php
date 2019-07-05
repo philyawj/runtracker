@@ -21,8 +21,9 @@ class CreateRunsTable extends Migration
             $table->integer('year');
             $table->integer('month');
             $table->integer('weekofyear');
-            $table->float('distance', 5, 2);
+            $table->float('miles', 5, 2);
             $table->integer('seconds');
+            $table->float('mph', 5, 2);
             $table->text('notes')->nullable();
         });
     }
