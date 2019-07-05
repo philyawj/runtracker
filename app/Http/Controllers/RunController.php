@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Run;
 use Illuminate\Http\Request;
+use App\User;
 
 class RunController extends Controller
 {
@@ -26,7 +27,8 @@ class RunController extends Controller
     public function create()
     {
         //
-        return view('runs.addrun');
+        $user = User::all();
+        return view('runs.addrun', compact('user'));
     }
 
     /**
@@ -40,7 +42,15 @@ class RunController extends Controller
         //
         $input = $request->all();
 
-        dd($input);
+        $convertedSeconds = ($input['hours'] * 3600) + ($input['minutes'] * 60) + $input['seconds'];
+
+        $input['seconds'] = $convertedSeconds;
+
+        // dd($input);
+
+        Run::create($input);
+
+        return redirect('/dashboard/run');
     }
 
     /**

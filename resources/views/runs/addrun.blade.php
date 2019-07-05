@@ -15,7 +15,7 @@
                             <label for="date">Date</label>
                             <input type="text" name="date" class="form-control">
                         </div>
-
+                        {{dd($user)}}
                         <div class="form-group">
                             <label for="distance">Distance</label>
                             <input type="text" name="distance" class="form-control">
@@ -34,6 +34,11 @@
                         <div class="form-group">
                             <label for="seconds">Seconds</label>
                             <input type="text" name="seconds" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Notes</label>
+                            <input type="text" name="notes" class="form-control">
                         </div>
 
                         <div class="form-group">
