@@ -1,4 +1,6 @@
 ADD RUN:
-date picker
-input validtion for all types
-on phone show num pad
+date picker --> and add validation to add specific format, maybe with regex
+input validtion for all types --> make seconds be at least 1, with regex
+
+DISPLAY RUNS:
+add calculation for miles per hour. may want to add that calculation to the database

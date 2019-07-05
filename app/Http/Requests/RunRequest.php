@@ -24,7 +24,6 @@ class RunRequest extends FormRequest
     public function rules()
     {
         return [
-            //
             'date' => 'required',
             'distance' => 'required'
         ];
