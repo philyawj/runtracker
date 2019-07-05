@@ -17,6 +17,7 @@
                     THIS IS THE RUNS PAGE FROM runs folder
                     <a class="btn btn-primary" href="{{route('run.create')}}">Add Run</a>
 
+                    <p>Miles this week: {{$milesthisweek}}</p>
                     <hr>
                     
                     <table class="table">

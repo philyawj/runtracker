@@ -22,7 +22,13 @@ class RunController extends Controller
 
         $runs = Run::all()->where('user_id', Auth::user()->id);
 
-        return view('runs.index', compact('runs'));
+        // display the current week and show how many miles run thus far this week
+        $currentweek = Carbon::now()->weekOfYear;
+        $milesthisweek = Run::all()->where('user_id', Auth::user()->id)->where('weekofyear', $currentweek)->sum('miles');
+
+        // dd($thisweek);
+
+        return view('runs.index', compact('runs'), ['milesthisweek' => $milesthisweek, 'currentweek' => $currentweek]);
     }
 
     /**
@@ -58,8 +64,6 @@ class RunController extends Controller
         $input['year'] = $dt->year;
         $input['month'] = $dt->month;
         $input['weekofyear'] = $dt->weekOfYear;
-
-        // dd($input);
 
         Run::create($input);
 
