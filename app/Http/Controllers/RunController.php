@@ -86,6 +86,9 @@ class RunController extends Controller
     public function edit(Run $run)
     {
         //
+        $run = Run::findOrFail($run->id);
+
+        return view('runs.editrun', compact('run'));
     }
 
     /**
@@ -98,6 +101,23 @@ class RunController extends Controller
     public function update(Request $request, Run $run)
     {
         //
+        $input = $request->all();
+
+        $convertedSeconds = ($input['hours'] * 3600) + ($input['minutes'] * 60) + $input['seconds'];
+        $input['seconds'] = $convertedSeconds;
+
+        $input['user_id'] = Auth::user()->id;
+
+        $input['mph'] = $input['miles'] / ($convertedSeconds / 3600);
+
+        $dt = Carbon::parse($input['date']);
+        $input['year'] = $dt->year;
+        $input['month'] = $dt->month;
+        $input['weekofyear'] = $dt->weekOfYear;
+
+        $run->update($input);
+
+        return redirect('/dashboard/run');
     }
 
     /**

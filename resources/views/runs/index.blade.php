@@ -51,7 +51,7 @@
                                     <td>{{$run->seconds}}</td>
                                     <td>{{$run->mph}}</td>
                                     <td>{{$run->notes}}</td>
-                                    <td><a>Edit</a></td>
+                                    <td><a href="{{route('run.edit', $run->id)}}">Edit</a></td>
                                 </tr>
 
                             @endforeach
