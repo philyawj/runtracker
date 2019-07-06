@@ -8,18 +8,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    THIS IS THE RUNS PAGE FROM runs folder
-                    <a class="btn btn-primary" href="{{route('runs.create')}}">Add Run</a>
-
-                    <p>Miles this week: {{$milesthisweek}}</p>
-                    <hr>
-                    
                     <table class="table">
                             <thead>
                                 <tr>
