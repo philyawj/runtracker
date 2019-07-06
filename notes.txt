@@ -6,3 +6,4 @@ input validtion for all types --> make seconds be at least 1, with regex
 validate to catch when mph breaks with a near divide by zero. maybe a run must be at least 5 minutes long
 don't allow a date in the future
 
+replace welcome.blade with login template and setup the rerouting depending on login or not
