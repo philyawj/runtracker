@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     
-                    <form method="POST" action="{{route('run.update', $run->id)}}">
+                    <form method="POST" action="{{route('runs.update', $run->id)}}">
                     <input type="hidden" name="_method" value="PATCH">
                         {{ csrf_field() }}
                         <div class="form-group">

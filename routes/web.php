@@ -23,4 +23,4 @@ Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
 // Route::get('/dashboard/run', 'RunController@index')->name('run');
-Route::resource('/dashboard/run', 'RunController');
+Route::resource('/dashboard/runs', 'RunController');

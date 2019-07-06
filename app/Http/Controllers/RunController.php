@@ -65,7 +65,7 @@ class RunController extends Controller
 
         Run::create($input);
 
-        return redirect('/dashboard/run');
+        return redirect('/dashboard/runs');
     }
 
     /**
@@ -119,7 +119,7 @@ class RunController extends Controller
 
         $run->update($input);
 
-        return redirect('/dashboard/run');
+        return redirect('/dashboard/runs');
     }
 
     /**
@@ -135,6 +135,6 @@ class RunController extends Controller
         
         $run->delete();
 
-        return redirect('dashboard/run');
+        return redirect('dashboard/runs');
     }
 }

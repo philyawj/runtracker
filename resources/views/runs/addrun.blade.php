@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     
-                    <form method="POST" action="{{route('run.store')}}">
+                    <form method="POST" action="{{route('runs.store')}}">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="date">Date</label>

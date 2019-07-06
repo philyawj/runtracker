@@ -15,7 +15,7 @@
                     @endif
 
                     THIS IS THE RUNS PAGE FROM runs folder
-                    <a class="btn btn-primary" href="{{route('run.create')}}">Add Run</a>
+                    <a class="btn btn-primary" href="{{route('runs.create')}}">Add Run</a>
 
                     <p>Miles this week: {{$milesthisweek}}</p>
                     <hr>
@@ -53,8 +53,8 @@
                                     <td>{{$run->seconds}}</td>
                                     <td>{{$run->mph}}</td>
                                     <td>{{$run->notes}}</td>
-                                    <td><a href="{{route('run.edit', $run->id)}}">Edit</a></td>
-                                    <td><form method="post" action="{{route('run.destroy', $run->id)}}">
+                                    <td><a href="{{route('runs.edit', $run->id)}}">Edit</a></td>
+                                    <td><form method="post" action="{{route('runs.destroy', $run->id)}}">
                                             <input type="hidden" name="_method" value="DELETE">
                                             {{csrf_field()}}
 
