@@ -21,7 +21,7 @@
                                     <th scope="col">user_id</th>
                                     <th scope="col">date</th>
                                     <th scope="col">miles</th>
-                                    <th scope="col">seconds</th>
+                                    <th scope="col">time</th>
                                     <th scope="col">mph</th>
                                     
                                 </tr>
@@ -35,7 +35,7 @@
                                     <td>{{$lastthreerun->user_id}}</td>
                                     <td>{{$lastthreerun->date}}</td>
                                     <td>{{$lastthreerun->miles}}</td>
-                                    <td>{{$lastthreerun->seconds}}</td>
+                                    <td>{{gmdate("H:i:s", $lastthreerun->seconds)}}</td>
                                     <td>{{$lastthreerun->mph}}</td>
                                 </tr>
 

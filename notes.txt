@@ -8,4 +8,5 @@ don't allow a date in the future
 
 replace welcome.blade with login template and setup the rerouting depending on login or not
 
-create a function that shows seconds as 0:00:00
+
+add counts for number of times achieved a 5k 10k half marathon full marathon

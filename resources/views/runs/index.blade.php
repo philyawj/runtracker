@@ -19,7 +19,7 @@
                                     <th scope="col">month</th>
                                     <th scope="col">week of year</th>
                                     <th scope="col">miles</th>
-                                    <th scope="col">seconds</th>
+                                    <th scope="col">time</th>
                                     <th scope="col">mph</th>
                                     <th scope="col">notes</th>
                                     <th scope="col">Edit</th>
@@ -39,7 +39,7 @@
                                     <td>{{$run->month}}</td>
                                     <td>{{$run->weekofyear}}</td>
                                     <td>{{$run->miles}}</td>
-                                    <td>{{$run->seconds}}</td>
+                                    <td>{{gmdate("H:i:s", $run->seconds)}}</td>
                                     <td>{{$run->mph}}</td>
                                     <td>{{$run->notes}}</td>
                                     <td><a href="{{route('runs.edit', $run->id)}}">Edit</a></td>
