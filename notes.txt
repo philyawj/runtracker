@@ -7,3 +7,5 @@ validate to catch when mph breaks with a near divide by zero. maybe a run must b
 don't allow a date in the future
 
 replace welcome.blade with login template and setup the rerouting depending on login or not
+
+create a function that shows seconds as 0:00:00

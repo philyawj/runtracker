@@ -17,9 +17,6 @@
                                     <th scope="col">id</th>
                                     <th scope="col">user_id</th>
                                     <th scope="col">date</th>
-                                    <th scope="col">year</th>
-                                    <th scope="col">month</th>
-                                    <th scope="col">week of year</th>
                                     <th scope="col">miles</th>
                                     <th scope="col">seconds</th>
                                     <th scope="col">mph</th>
@@ -28,18 +25,15 @@
                             </thead>
                             <tbody>
                         
-                            @foreach($runs as $run)
+                            @foreach($lastthreeruns as $lastthreerun)
 
                                 <tr>
-                                    <th scope="row">{{$run->id}}</th>
-                                    <td>{{$run->user_id}}</td>
-                                    <td>{{$run->date}}</td>
-                                    <td>{{$run->year}}</td>
-                                    <td>{{$run->month}}</td>
-                                    <td>{{$run->weekofyear}}</td>
-                                    <td>{{$run->miles}}</td>
-                                    <td>{{$run->seconds}}</td>
-                                    <td>{{$run->mph}}</td>
+                                    <th scope="row">{{$lastthreerun->id}}</th>
+                                    <td>{{$lastthreerun->user_id}}</td>
+                                    <td>{{$lastthreerun->date}}</td>
+                                    <td>{{$lastthreerun->miles}}</td>
+                                    <td>{{$lastthreerun->seconds}}</td>
+                                    <td>{{$lastthreerun->mph}}</td>
                                 </tr>
 
                             @endforeach

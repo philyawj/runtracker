@@ -28,8 +28,8 @@ class DashboardController extends Controller
     public function index()
     {
 
-        // only return runs from logged in user
-        $runs = Run::all()->where('user_id', Auth::user()->id);
+        // only return last 3 runs from logged in user
+        $lastthreeruns = Run::all()->where('user_id', Auth::user()->id)->sortByDesc('date')->take(3);
 
         // display the current week and show how many miles run thus far this week
         $currentweek = Carbon::now()->weekOfYear;
@@ -39,6 +39,6 @@ class DashboardController extends Controller
 
         // return view('runs.index', compact('runs'), ['milesthisweek' => $milesthisweek, 'currentweek' => $currentweek]);
 
-        return view('dashboard', ['milesthisweek' => $milesthisweek]);
+        return view('dashboard', compact('lastthreeruns'), ['milesthisweek' => $milesthisweek]);
     }
 }

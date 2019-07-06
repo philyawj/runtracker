@@ -8,7 +8,6 @@ use App\User;
 use Auth;
 use Carbon\Carbon;
 use App\Http\Requests\RunRequest;
-
 class RunController extends Controller
 {
     /**
