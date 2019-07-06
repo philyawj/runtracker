@@ -19,7 +19,6 @@ class RunController extends Controller
     public function index()
     {
         // only return runs from logged in user
-
         $runs = Run::all()->where('user_id', Auth::user()->id);
 
         // display the current week and show how many miles run thus far this week
