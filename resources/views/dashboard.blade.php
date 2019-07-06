@@ -9,6 +9,9 @@
 
                 <div class="card-body">
                     <p>Miles this week: {{$milesthisweek}}</p>
+                    <p>Miles last week: {{$mileslastweek}}</p>
+                    <p>Miles this month: {{$milesthismonth}}</p>
+                    <p>Miles last month: {{$mileslastmonth}}</p>
 
                     <p>Last 3 runs</p>
                     <table class="table">
@@ -47,7 +50,7 @@
                         <li>3.  w/ see more </li>
 
                         <li>1.5 Progress to weekly goal if there is one</li>
-                        <li>2. Miles this month</li>
+               
                         <li>2.5 Progress to monthly goal if there is one.</li>
                         
                     </ul>

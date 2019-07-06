@@ -31,14 +31,22 @@ class DashboardController extends Controller
         // only return last 3 runs from logged in user
         $lastthreeruns = Run::all()->where('user_id', Auth::user()->id)->sortByDesc('date')->take(3);
 
-        // display the current week and show how many miles run thus far this week
+        // how many miles run thus far this week
         $currentweek = Carbon::now()->weekOfYear;
         $milesthisweek = Run::all()->where('user_id', Auth::user()->id)->where('weekofyear', $currentweek)->sum('miles');
 
-        // dd($thisweek);
+        // how many miles run last month
+        $lastweek = Carbon::now()->weekOfYear - 1;
+        $mileslastweek = Run::all()->where('user_id', Auth::user()->id)->where('weekofyear', $lastweek)->sum('miles');
 
-        // return view('runs.index', compact('runs'), ['milesthisweek' => $milesthisweek, 'currentweek' => $currentweek]);
+        // how many miles run thus far this month
+        $currentmonth = Carbon::now()->month;
+        $milesthismonth = Run::all()->where('user_id', Auth::user()->id)->where('month', $currentmonth)->sum('miles');
 
-        return view('dashboard', compact('lastthreeruns'), ['milesthisweek' => $milesthisweek]);
+        // how many miles run last month
+        $lastmonth = Carbon::now()->month - 1;
+        $mileslastmonth = Run::all()->where('user_id', Auth::user()->id)->where('month', $lastmonth)->sum('miles');
+
+        return view('dashboard', compact('lastthreeruns'), ['milesthisweek' => $milesthisweek, 'mileslastweek' => $mileslastweek, 'milesthismonth' => $milesthismonth, 'mileslastmonth' => $mileslastmonth]);
     }
 }
