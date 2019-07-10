@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.runjquery')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="text" name="date" class="form-control" value={{$run->date}}>
+                            <input id="editrun" type="text" name="date" class="form-control" value={{$run->date}}>
                         </div>
                        
                         <div class="form-group">

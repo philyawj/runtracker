@@ -23,12 +23,12 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
     $( function() {
-        $( "#addrun" ).datepicker({
+        $( "#addrun, #editrun" ).datepicker({
         firstDay: 1,
         dateFormat: "yy-mm-dd"
         });
         // make read only -- #todo need to add readonly styling
-        $("#addrun").attr( 'readOnly' , 'true' );
+        $("#addrun, #editrun").attr( 'readOnly' , 'true' );
     } );
 
     
