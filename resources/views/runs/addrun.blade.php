@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.runjquery')
 
 @section('content')
 <div class="container">
@@ -9,11 +9,11 @@
 
                 <div class="card-body">
                     
-                    <form method="POST" action="{{route('runs.store')}}">
+                    <form method="POST" action="{{route('runs.store')}}" autocomplete="off">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="text" name="date" class="form-control" value={{old('date')}}>
+                            <input id="addrun" type="text" name="date" class="form-control" value={{old('date')}}>
                         </div>
                        
                         <div class="form-group">
