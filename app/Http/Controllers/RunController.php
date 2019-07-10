@@ -84,6 +84,11 @@ class RunController extends Controller
         //
         $run = Run::findOrFail($run->id);
 
+        // convert seconds into hours/minutes/seconds
+        $run['hours'] = gmdate("G", $run->seconds);
+        $run['minutes'] = gmdate("i", $run->seconds);
+        $run['seconds'] = gmdate("s", $run->seconds);
+
         return view('runs.editrun', compact('run'));
     }
 

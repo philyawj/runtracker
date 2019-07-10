@@ -6,6 +6,7 @@ input validtion for all types --> make seconds be at least 1, with regex
 validate to catch when mph breaks with a near divide by zero. maybe a run must be at least 5 minutes long.
 when mph calc is over 20 shoot an error. 
 don't allow a date in the future
+run has to be less than 24 hours on creating and edit
 
 create two different layouts for daily create run to include the datepicker
 and another for weekly to include the weekly date picker
