@@ -48,6 +48,15 @@
 
                     </form>
 
+                    <form method="post" action="{{route('runs.destroy', $run->id)}}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        {{csrf_field()}}
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-danger" value="Delete Run">
+                        </div>
+                    </form>
+
                     @if(count($errors) > 0)
 
                     <div class="alert alert-danger">

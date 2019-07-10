@@ -23,7 +23,6 @@
                                     <th scope="col">mph</th>
                                     <th scope="col">notes</th>
                                     <th scope="col">Edit</th>
-                                    <th scope="col">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,14 +42,6 @@
                                     <td>{{$run->mph}}</td>
                                     <td>{{$run->notes}}</td>
                                     <td><a href="{{route('runs.edit', $run->id)}}">Edit</a></td>
-                                    <td><form method="post" action="{{route('runs.destroy', $run->id)}}">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            {{csrf_field()}}
-
-                                            <div class="form-group">
-                                                <input type="submit" class="btn btn-danger btn-sm" value="Delete Run">
-                                            </div>
-                                        </form></td>
                                 </tr>
 
                             @endforeach
