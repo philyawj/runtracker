@@ -1,3 +1,23 @@
+Thursday: What I really want to figure out today is how to set weekly and monthly goals.
+
+a weekly goal needs to be tied to a user id and a week
+a monthly goal needs to be tied to a user id and a month 
+
+
+storing month week year in runs table is probably overkill. can I adjust the quries to only go off the date? 
+How I handle this could impact how I do the goals
+
+its not how I store it that's the issue. its how I query it.
+
+Think I want to create a test table that has every week total miles starting with the first date entered.
+
+
+
+
+
+
+
+
 add auth check on dashboard/
 
 ADD/EDIT RUN:
@@ -8,10 +28,10 @@ when mph calc is over 20 shoot an error.
 don't allow a date in the future
 run has to be less than 24 hours on creating and edit
 
+
+
 create two different layouts for daily create run to include the datepicker
 and another for weekly to include the weekly date picker
-
-move delete run onto the edit page
 
 replace welcome.blade with login template and setup the rerouting depending on login or not
 
@@ -19,3 +39,5 @@ replace welcome.blade with login template and setup the rerouting depending on l
 add counts for number of times achieved a 5k 10k half marathon full marathon
 
 create admin panel to see every user. last login date. active users this week/month. last 10 runs across all users.
+
+add pagination to history so it only shows 15 at a time.
