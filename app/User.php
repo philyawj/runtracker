@@ -41,4 +41,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Run');
     }
 
+    public function goals(){
+        return $this->hasMany('App\Goal');
+    }
+
 }

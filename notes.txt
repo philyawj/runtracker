@@ -12,6 +12,7 @@ its not how I store it that's the issue. its how I query it.
 Think I want to create a test table that has every week total miles starting with the first date entered.
 
 
+turn off password reset routes/ability
 
 
 

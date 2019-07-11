@@ -46,22 +46,22 @@ class DashboardController extends Controller
         // echo $allyears;
 
         // $milesperweek = Run::select('weekofyear', 'miles')->where('user_id', $user_id)->groupBy('weekofyear')->sum('miles');
-        // $milesperweek = Run::select('weekofyear', 'miles')->where('user_id', $user_id)->get();
+        $milesperweek = Run::select('weekofyear', 'miles')->where('user_id', $user_id)->get();
         // echo $milesperweek;
 
-        // $groupedmiles = $milesperweek->groupBy('weekofyear')->map(function ($row){
-        //     return $row->sum('miles');
-        // });
+        $groupedmiles = $milesperweek->groupBy('weekofyear')->map(function ($row){
+            return $row->sum('miles');
+        });
 
-        // echo $groupedmiles;
+        echo $groupedmiles;
 
 
 
         // only return last 3 runs from logged in user
-        // $lastthreeruns = Run::all()->where('user_id', $user_id)->sortByDesc('date')->take(3);
-        $lastthreeruns = Run::all();
+        $lastthreeruns = Run::all()->where('user_id', $user_id)->sortByDesc('date')->take(3);
+        // $lastthreeruns = Run::all();
 
-        echo $lastthreeruns;
+        // echo $lastthreeruns;
 
         // how many miles run thus far this week
         $currentweek = Carbon::now()->weekOfYear;
