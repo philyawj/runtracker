@@ -30,14 +30,38 @@ class DashboardController extends Controller
 
         $user_id = Auth::user()->id;
 
-        $alldates = Run::all()->where('user_id', $user_id);
-        $firstdate = $alldates->sortBy('date')->first()->date;
-        $lastdate = $alldates->sortByDesc('date')->first()->date;
-        echo 'The first date is ' . $firstdate . '  and the last date is ' . $lastdate;
+        // $allweeks = Run::select('weekofyear')->where('user_id', $user_id)->get();
+        // $allyears = Run::select('year')->get();
+
+        // $firstdate = $alldates->sortBy('date')->first()->date;
+        // $lastdate = $alldates->sortByDesc('date')->first()->date;
+
+        // $firstweek = Carbon::parse($firstdate)->weekOfYear;
+        // $lastweek = Carbon::parse($lastdate)->weekOfYear;
+        // echo 'The first date is ' . $firstdate . '  and the last date is ' . $lastdate;
+        // echo $firstweek;
+        // echo " \n";
+        // echo $lastweek;
+        // echo $allweeks;
+        // echo $allyears;
+
+        // $milesperweek = Run::select('weekofyear', 'miles')->where('user_id', $user_id)->groupBy('weekofyear')->sum('miles');
+        // $milesperweek = Run::select('weekofyear', 'miles')->where('user_id', $user_id)->get();
+        // echo $milesperweek;
+
+        // $groupedmiles = $milesperweek->groupBy('weekofyear')->map(function ($row){
+        //     return $row->sum('miles');
+        // });
+
+        // echo $groupedmiles;
+
+
 
         // only return last 3 runs from logged in user
         // $lastthreeruns = Run::all()->where('user_id', $user_id)->sortByDesc('date')->take(3);
         $lastthreeruns = Run::all();
+
+        echo $lastthreeruns;
 
         // how many miles run thus far this week
         $currentweek = Carbon::now()->weekOfYear;
