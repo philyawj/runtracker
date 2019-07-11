@@ -11,6 +11,36 @@
 
                 <h2>Goals in the year {{$currentyear}}.</h2>
 
+                    <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">week</th>
+                                    <th scope="col">miles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+                            @foreach($weeks as $week)
+
+                                <tr>
+                                    <th scope="row">{{$week}}</th>
+                                    <td>
+                                    @foreach($goals as $goal)
+                                        @if($week == $goal->weekofyear)
+                                            {{$goal->miles}}
+                                        @endif
+                                    @endforeach
+                                    </td>
+                                </tr>
+
+                            @endforeach
+
+                            </tbody>
+                    </table>
+                
+
+                <hr>
+
                 <table class="table">
                             <thead>
                                 <tr>

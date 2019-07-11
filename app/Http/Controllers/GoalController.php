@@ -19,9 +19,14 @@ class GoalController extends Controller
     {
         // only return goals from logged in user
         $currentyear = Carbon::now()->year;
-        $goals = Goal::where('user_id', Auth::user()->id)->where('year', $currentyear)->get();
+        $goals = Goal::select('weekofyear', 'miles')->where('user_id', Auth::user()->id)->where('year', $currentyear)->get();
 
-        return view('goals.index', compact('goals'), ['currentyear' => $currentyear]);
+        //create all 52 weeks of week/goal as key value pairs so I can output them
+
+        // echo $goals;
+        $weeks = collect([1, 2, 3, 4, 5, 6, 7, 8]);
+        
+        return view('goals.index', compact('goals'), ['currentyear' => $currentyear, 'weeks' => $weeks]);
     }
 
     /**
