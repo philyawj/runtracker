@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Goal;
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
+use Carbon\Carbon;
 
 class GoalController extends Controller
 {
@@ -14,7 +17,11 @@ class GoalController extends Controller
      */
     public function index()
     {
-        //
+        // only return goals from logged in user
+        $currentyear = Carbon::now()->year;
+        $goals = Goal::where('user_id', Auth::user()->id)->where('year', $currentyear)->get();
+
+        return view('goals.index', compact('goals'), ['currentyear' => $currentyear]);
     }
 
     /**
