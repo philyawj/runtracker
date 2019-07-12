@@ -10,10 +10,10 @@
                 <div class="card-body">
 
                 {{$year}}
-                <form method="POST" action="" autocomplete="off">
+                <form method="POST" action="{{route('goals.reroute')}}" autocomplete="off">
                         {{ csrf_field() }}
 
-                        <select name="year" id="">
+                        <select name="gotoyear" id="">
                             @foreach($goalyeararray as $goalyear)
                             
                                 @if($goalyear === $year)

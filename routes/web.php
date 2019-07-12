@@ -27,3 +27,4 @@ Route::resource('/dashboard/goals', 'GoalController', ['parameters' => ['goal' =
 
 Route::get('/dashboard/goals/{year}/{weekofyear}/edit', 'GoalController@edit')->name('goals.edit');
 Route::get('/dashboard/goals/{year}/{weekofyear}/create', 'GoalController@create')->name('goals.create');
+Route::post('/dashboard/goals/reroute', 'GoalController@reroute')->name('goals.reroute');

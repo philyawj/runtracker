@@ -65,8 +65,7 @@ class GoalController extends Controller
         $firstgoalyear = Goal::select('year')->where('user_id', Auth::user()->id)->orderBy('year', 'asc')->first();
         $firstgoalyear = $firstgoalyear['year'];
 
-        $lastgoalyear = Goal::select('year')->where('user_id', Auth::user()->id)->orderBy('year', 'desc')->first();
-        $lastgoalyear = $lastgoalyear['year'];
+        $lastgoalyear = $currentyear + 1;
 
         $goalyeararray = array();
         $yearcounter = $firstgoalyear;
@@ -163,8 +162,7 @@ class GoalController extends Controller
         $firstgoalyear = Goal::select('year')->where('user_id', Auth::user()->id)->orderBy('year', 'asc')->first();
         $firstgoalyear = $firstgoalyear['year'];
         
-        $lastgoalyear = Goal::select('year')->where('user_id', Auth::user()->id)->orderBy('year', 'desc')->first();
-        $lastgoalyear = $lastgoalyear['year'];
+        $lastgoalyear = $currentyear + 1;
 
         $goalyeararray = array();
         $yearcounter = $firstgoalyear;
@@ -174,13 +172,12 @@ class GoalController extends Controller
             $yearcounter++;
         }
 
-        $test = in_array($year, $goalyeararray);
-        if($test === true) {
-            echo "YES IT EXSISTS";
-        } else {
-            echo "DOES NOT EXIST";
-        }
-        
+        // if user manually changes url to year that doesn't exists, automatically route to most recent year. 
+        $isgoalyear = in_array($year, $goalyeararray);
+        if($isgoalyear === false) {
+            return redirect('dashboard/goals');
+        } 
+
         return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek, 'currentyear' => $currentyear, 'goalyeararray' => $goalyeararray]);
     }
 
@@ -224,5 +221,20 @@ class GoalController extends Controller
         $goal->delete();
 
         return redirect('dashboard/goals');
+    }
+
+     /**
+     * Reroute the goals dropdown submit to correct page
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Goal  $goal
+     * @return \Illuminate\Http\Response
+     */
+    public function reroute(Request $request)
+    {
+        $input = $request->all();
+        $goal = $input['gotoyear'];
+
+        return redirect()->route('goals.show', [$goal]);
     }
 }
