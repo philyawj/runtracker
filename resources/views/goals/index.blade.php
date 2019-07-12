@@ -8,8 +8,7 @@
                 <div class="card-header">Goals</div>
 
                 <div class="card-body">
-
-                {{$year}}
+                
                 <form method="POST" action="{{route('goals.reroute')}}" autocomplete="off">
                         {{ csrf_field() }}
 

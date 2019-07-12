@@ -9,6 +9,13 @@
 
                 <div class="card-body">
                     <p>Miles this week: {{$milesthisweek}}</p>
+                    @if(is_null($thisweekgoal)) 
+                        <p><a class="btn btn-sm btn-primary" href="{{route('goals.create', [$currentyear,$currentweek])}}">Button to set goal for this week</a></p>
+                    @else
+                        <p>Goal this week: {{$thisweekgoal}}</p>
+                    @endif
+                    
+                    
                     <p>Miles last week: {{$mileslastweek}}</p>
                     <p>Miles this month: {{$milesthismonth}}</p>
                     <p>Miles last month: {{$mileslastmonth}}</p>
