@@ -60,8 +60,23 @@ class GoalController extends Controller
             }
 
         }
+
+        // dropdown - start by finding the first year the current user has set a goal
+        $firstgoalyear = Goal::select('year')->where('user_id', Auth::user()->id)->orderBy('year', 'asc')->first();
+        $firstgoalyear = $firstgoalyear['year'];
+
+        $lastgoalyear = Goal::select('year')->where('user_id', Auth::user()->id)->orderBy('year', 'desc')->first();
+        $lastgoalyear = $lastgoalyear['year'];
+
+        $goalyeararray = array();
+        $yearcounter = $firstgoalyear;
+
+        while($yearcounter <= $lastgoalyear){
+            array_push($goalyeararray, $yearcounter);
+            $yearcounter++;
+        }
         
-        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek, 'currentyear' => $currentyear]);
+        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek, 'currentyear' => $currentyear, 'goalyeararray' => $goalyeararray]);
     }
 
     /**
@@ -143,8 +158,26 @@ class GoalController extends Controller
             }
 
         }
+
+        // dropdown - start by finding the first year the current user has set a goal
+        $firstgoalyear = Goal::select('year')->where('user_id', Auth::user()->id)->orderBy('year', 'asc')->first();
+        $firstgoalyear = $firstgoalyear['year'];
         
-        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek, 'currentyear' => $currentyear]);
+        $lastgoalyear = Goal::select('year')->where('user_id', Auth::user()->id)->orderBy('year', 'desc')->first();
+        $lastgoalyear = $lastgoalyear['year'];
+
+        $goalyeararray = array();
+        $yearcounter = $firstgoalyear;
+
+        while($yearcounter <= $lastgoalyear){
+            array_push($goalyeararray, $yearcounter);
+            $yearcounter++;
+        }
+
+        $test = in_array($year, $goalyeararray);
+        echo "The value of test is " . strval($test) ;
+        
+        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek, 'currentyear' => $currentyear, 'goalyeararray' => $goalyeararray]);
     }
 
     /**

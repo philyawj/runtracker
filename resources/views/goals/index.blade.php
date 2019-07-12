@@ -9,13 +9,20 @@
 
                 <div class="card-body">
 
+                {{$year}}
                 <select name="" id="">
-                    <option value="">{{$currentyear - 2}}</option>
-                    <option value="">{{$currentyear - 1}}</option>
-                    <option value="">{{$currentyear}}</option>
-                    <option value="">{{$currentyear + 1}}</option>
-                    <option value="">{{$currentyear + 2}}</option>
+                    @foreach($goalyeararray as $goalyear)
+                    
+                        @if($goalyear === $currentyear)
+                            <option selected="selected" value="">{{$goalyear}}</option>
+                        @else
+                            <option value="">{{$goalyear}}</option>
+                        @endif
+
+                    @endforeach
                 </select>
+
+               
 
                 <h2>Goals in the year {{$year}}.</h2>
                     <table class="table table-sm">
