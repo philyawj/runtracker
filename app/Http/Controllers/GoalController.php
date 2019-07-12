@@ -103,6 +103,9 @@ class GoalController extends Controller
     // public function show(Goal $goal)
     public function show($year)
     {
+        // convert year to string
+        $year = (int)$year;
+
         $currentyear = Carbon::now()->year;
         $currentweek = Carbon::now()->weekOfYear;
 

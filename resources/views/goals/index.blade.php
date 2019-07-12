@@ -18,8 +18,6 @@
                 </select>
 
                 <h2>Goals in the year {{$year}}.</h2>
-                
-
                     <table class="table table-sm">
                             <thead>
                                 <tr>
