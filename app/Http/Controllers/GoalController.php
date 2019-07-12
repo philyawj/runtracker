@@ -51,9 +51,13 @@ class GoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($year, $weekofyear)
     {
-        //
+        $goal = new \stdClass();
+        $goal->year = $year;
+        $goal->weekofyear = $weekofyear;
+        
+        return view('goals.addgoal', compact('goal'));
     }
 
     /**
@@ -64,7 +68,12 @@ class GoalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
+        // dd($input);
+        Goal::create($input);
+
+        return redirect('/dashboard/goals');
     }
 
     /**

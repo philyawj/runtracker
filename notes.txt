@@ -3,6 +3,10 @@ edit a goal by week /2019/52/edit
 
 add a show goal page that's next year or year after. dashboard/goals/2020
 
+
+need to add validation to edit/add goals - must only input number
+on goal create page - check if goal already exists under that page. If yes, go back to goals page and flash a message.
+
 turn off password reset routes/ability
 
 add auth check on dashboard/

@@ -41,7 +41,7 @@
                                     <td>{{gmdate("H:i:s", $run->seconds)}}</td>
                                     <td>{{$run->mph}}</td>
                                     <td>{{$run->notes}}</td>
-                                    <td><a href="{{route('runs.edit', $run->id)}}">Edit</a></td>
+                                    <td><a class="btn btn-warning btn-sm" href="{{route('runs.edit', $run->id)}}">Edit</a></td>
                                 </tr>
 
                             @endforeach

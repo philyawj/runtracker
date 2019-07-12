@@ -27,9 +27,9 @@
                                         <th scope="row">{{$goal->weekofyear}}</th>
                                         <td>{{$goal->miles}}</td>
                                         @if($goal->miles > 0)
-                                            <td><a href="{{route('goals.edit', [$year,$goal->weekofyear])}}">Edit</a></td>
+                                            <td><a class="btn btn-warning btn-sm" href="{{route('goals.edit', [$year,$goal->weekofyear])}}">Edit</a></td>
                                         @else 
-                                            <td>Add</td>
+                                            <td><a class="btn btn-success btn-sm" href="{{route('goals.create', [$year,$goal->weekofyear])}}">Add</a></td>
                                         @endif
                                     </tr>
                                 @endforeach                           

@@ -23,6 +23,7 @@ Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::resource('/dashboard/runs', 'RunController');
-Route::resource('/dashboard/goals', 'GoalController', ['parameters' => ['goal' => 'year'], 'except' => [ 'edit']]);
+Route::resource('/dashboard/goals', 'GoalController', ['parameters' => ['goal' => 'year'], 'except' => [ 'edit', 'create']]);
 
 Route::get('/dashboard/goals/{year}/{weekofyear}/edit', 'GoalController@edit')->name('goals.edit');
+Route::get('/dashboard/goals/{year}/{weekofyear}/create', 'GoalController@create')->name('goals.create');
