@@ -1,4 +1,7 @@
-next to each goal week - include the start date month/day - end date month/day
+
+I want to find the min year someone has created a goal
+then increase until current year
+then add one
 
 add a show goal page that's next year or year after. dashboard/goals/2020
 create a dropdown for this on the goals page - two years ahead and 2 back

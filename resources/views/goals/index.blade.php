@@ -9,6 +9,14 @@
 
                 <div class="card-body">
 
+                <select name="" id="">
+                    <option value="">{{$currentyear - 2}}</option>
+                    <option value="">{{$currentyear - 1}}</option>
+                    <option value="">{{$currentyear}}</option>
+                    <option value="">{{$currentyear + 1}}</option>
+                    <option value="">{{$currentyear + 2}}</option>
+                </select>
+
                 <h2>Goals in the year {{$year}}.</h2>
                 
 
