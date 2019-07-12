@@ -10,30 +10,29 @@
                 <div class="card-body">
 
                 <h2>Goals in the year {{$currentyear}}.</h2>
+                
 
-                    <table class="table">
+                    <table class="table table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">week</th>
                                     <th scope="col">miles</th>
+                                    <th scope="col">add/edit</th>
                                 </tr>
                             </thead>
                             <tbody>
                             
-                            @foreach($weeks as $week)
-
-                                <tr>
-                                    <th scope="row">{{$week}}</th>
-                                    <td>
-                                    @foreach($goals as $goal)
-                                        @if($week == $goal->weekofyear)
-                                            {{$goal->miles}}
+                                @foreach($combinedgoals as $goal)
+                                    <tr>
+                                        <th scope="row">{{$goal->weekofyear}}</th>
+                                        <td>{{$goal->miles}}</td>
+                                        @if($goal->miles > 0)
+                                            <td>Edit</td>
+                                        @else 
+                                            <td>Add</td>
                                         @endif
-                                    @endforeach
-                                    </td>
-                                </tr>
-
-                            @endforeach
+                                    </tr>
+                                @endforeach                           
 
                             </tbody>
                     </table>
@@ -53,17 +52,7 @@
                             </thead>
                             <tbody>
                             
-                            @foreach($goals as $goal)
-
-                                <tr>
-                                    <th scope="row">{{$goal->id}}</th>
-                                    <td>{{$goal->user_id}}</td>
-                                    <td>{{$goal->year}}</td>
-                                    <td>{{$goal->weekofyear}}</td>
-                                    <td>{{$goal->miles}}</td>
-                                </tr>
-
-                            @endforeach
+                           
 
                             </tbody>
                     </table>

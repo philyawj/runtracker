@@ -21,12 +21,50 @@ class GoalController extends Controller
         $currentyear = Carbon::now()->year;
         $goals = Goal::select('weekofyear', 'miles')->where('user_id', Auth::user()->id)->where('year', $currentyear)->get();
 
+      
+        // They are the same
+        // echo $goals;
+        // $goals after being compacted
+        // [
+        //     {"weekofyear":4,"miles":5},
+        //     {"weekofyear":2,"miles":10},
+        //     {"weekofyear":3,"miles":25},
+        //     {"weekofyear":20,"miles":2},
+        //     {"weekofyear":41,"miles":1}
+        // ]
+
+        // $goals echod before compact
+        // [
+        //     {"weekofyear": 4, "miles": 5},
+        //     {"weekofyear": 2, "miles": 10},
+        //     {"weekofyear": 3, "miles": 25},
+        //     {"weekofyear": 20,"miles": 2},
+        //     {"weekofyear": 41, "miles": 1}
+        // ]
         //create all 52 weeks of week/goal as key value pairs so I can output them
 
-        // echo $goals;
-        $weeks = collect([1, 2, 3, 4, 5, 6, 7, 8]);
+        $combinedgoals = collect();
+
+        $weeks = collect([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52]);
+
+        foreach($weeks as $week) {
+            $o = new \stdClass();
+
+            $findmiles = $goals->filter(function($item) use ($week) {
+                return $item->weekofyear == $week;
+            })->first();
+
+            if($findmiles === null) {
+                $o->weekofyear = $week;
+                $o->miles = 'not set';
+                $combinedgoals->push($o);
+            } else {
+                $combinedgoals->push($findmiles);
+            }
+
+        }
         
-        return view('goals.index', compact('goals'), ['currentyear' => $currentyear, 'weeks' => $weeks]);
+        return view('goals.index', compact('combinedgoals'), ['currentyear' => $currentyear, 'weeks' => $weeks]);
     }
 
     /**
