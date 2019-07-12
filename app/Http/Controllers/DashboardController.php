@@ -76,6 +76,16 @@ class DashboardController extends Controller
         $thisweekgoal = $thisweekgoal['miles'];
         // dd($thisweekgoal);
 
-        return view('dashboard', compact('lastthreeruns'), ['milesthisweek' => $milesthisweek, 'mileslastweek' => $mileslastweek, 'milesthismonth' => $milesthismonth, 'mileslastmonth' => $mileslastmonth, 'thisweekgoal' => $thisweekgoal, 'currentweek' => $currentweek, 'currentyear' => $currentyear]);
+        if(isset($thisweekgoal)){
+            $weeklyprogress = round(($milesthisweek / $thisweekgoal) * 100, 2);
+            if($weeklyprogress > 100) {
+                $weeklyprogress = 100;
+            }
+        } else {
+            // dummy value to prevent error
+            $weeklyprogress = 1;
+        }
+        
+        return view('dashboard', compact('lastthreeruns'), ['milesthisweek' => $milesthisweek, 'mileslastweek' => $mileslastweek, 'milesthismonth' => $milesthismonth, 'mileslastmonth' => $mileslastmonth, 'thisweekgoal' => $thisweekgoal, 'currentweek' => $currentweek, 'currentyear' => $currentyear, 'weeklyprogress' => $weeklyprogress]);
     }
 }

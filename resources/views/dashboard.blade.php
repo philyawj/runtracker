@@ -11,8 +11,13 @@
                     <p>Miles this week: {{$milesthisweek}}</p>
                     @if(is_null($thisweekgoal)) 
                         <p><a class="btn btn-sm btn-primary" href="{{route('goals.create', [$currentyear,$currentweek])}}">Button to set goal for this week</a></p>
+                        
                     @else
                         <p>Goal this week: {{$thisweekgoal}}</p>
+                        <p>Progress to weekly goal</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{$weeklyprogress}}%" aria-valuenow="{{$weeklyprogress}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
                     @endif
                     
                     
