@@ -28,7 +28,7 @@
                                     @else 
                                         <tr>
                                     @endif
-                                        <th scope="row">{{$goal->weekofyear}}</th>
+                                        <th scope="row">{{$goal->startofweek}} - {{$goal->endofweek}} ({{$goal->weekofyear}})</th>
                                         <td>{{$goal->miles}}</td>
                                         @if($goal->miles > 0)
                                             <td><a class="btn btn-warning btn-sm" href="{{route('goals.edit', [$year,$goal->weekofyear])}}">Edit</a></td>

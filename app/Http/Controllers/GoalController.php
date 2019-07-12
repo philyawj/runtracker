@@ -42,8 +42,20 @@ class GoalController extends Controller
             if($findmiles === null) {
                 $o->weekofyear = $week;
                 $o->miles = 'not set';
+                $startdate = Carbon::now();
+                $startdate->setISODate($year,$week);
+                $o->startofweek = $startdate->startOfWeek()->format('n/j');
+                $enddate = Carbon::now();
+                $enddate->setISODate($year,$week);
+                $o->endofweek = $enddate->endOfWeek()->format('n/j');
                 $combinedgoals->push($o);
             } else {
+                $startdate = Carbon::now();
+                $startdate->setISODate($year,$week);
+                $findmiles->startofweek = $startdate->startOfWeek()->format('n/j');
+                $enddate = Carbon::now();
+                $enddate->setISODate($year,$week);
+                $findmiles->endofweek = $enddate->endOfWeek()->format('n/j');
                 $combinedgoals->push($findmiles);
             }
 
@@ -110,8 +122,20 @@ class GoalController extends Controller
             if($findmiles === null) {
                 $o->weekofyear = $week;
                 $o->miles = 'not set';
+                $startdate = Carbon::now();
+                $startdate->setISODate($year,$week);
+                $o->startofweek = $startdate->startOfWeek()->format('n/j');
+                $enddate = Carbon::now();
+                $enddate->setISODate($year,$week);
+                $o->endofweek = $enddate->endOfWeek()->format('n/j');
                 $combinedgoals->push($o);
             } else {
+                $startdate = Carbon::now();
+                $startdate->setISODate($year,$week);
+                $findmiles->startofweek = $startdate->startOfWeek()->format('n/j');
+                $enddate = Carbon::now();
+                $enddate->setISODate($year,$week);
+                $findmiles->endofweek = $enddate->endOfWeek()->format('n/j');
                 $combinedgoals->push($findmiles);
             }
 

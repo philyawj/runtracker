@@ -35,7 +35,7 @@
                                     <td>{{$lastthreerun->user_id}}</td>
                                     <td>{{$lastthreerun->date}}</td>
                                     <td>{{$lastthreerun->miles}}</td>
-                                    <td>{{gmdate("H:i:s", $lastthreerun->seconds)}}</td>
+                                    <td>{{date("H:i:s", $lastthreerun->seconds)}}</td>
                                     <td>{{$lastthreerun->mph}}</td>
                                 </tr>
 

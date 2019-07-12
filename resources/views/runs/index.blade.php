@@ -38,7 +38,7 @@
                                     <td>{{$run->month}}</td>
                                     <td>{{$run->weekofyear}}</td>
                                     <td>{{$run->miles}}</td>
-                                    <td>{{gmdate("H:i:s", $run->seconds)}}</td>
+                                    <td>{{date("H:i:s", $run->seconds)}}</td>
                                     <td>{{$run->mph}}</td>
                                     <td>{{$run->notes}}</td>
                                     <td><a class="btn btn-warning btn-sm" href="{{route('runs.edit', $run->id)}}">Edit</a></td>
