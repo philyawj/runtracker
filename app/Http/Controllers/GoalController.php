@@ -18,6 +18,10 @@ class GoalController extends Controller
     public function index()
     {
         // only return goals from logged in user
+
+        $currentyear = Carbon::now()->year;
+        $currentweek = Carbon::now()->weekOfYear;
+
         $year = Carbon::now()->year;
         // default index page shows the current year
         $goals = Goal::select('weekofyear', 'miles')->where('user_id', Auth::user()->id)->where('year', $year)->get();
@@ -45,7 +49,7 @@ class GoalController extends Controller
 
         }
         
-        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek]);
+        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek, 'currentyear' => $currentyear]);
     }
 
     /**
@@ -87,10 +91,9 @@ class GoalController extends Controller
     // public function show(Goal $goal)
     public function show($year)
     {
-        // dd($goal);
-        // only return goals from logged in user
-        // $year = Carbon::now()->year;
-        // default index page shows the current year
+        $currentyear = Carbon::now()->year;
+        $currentweek = Carbon::now()->weekOfYear;
+
         $goals = Goal::select('weekofyear', 'miles')->where('user_id', Auth::user()->id)->where('year', $year)->get();
 
         $combinedgoals = collect();
@@ -114,7 +117,7 @@ class GoalController extends Controller
 
         }
         
-        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks]);
+        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek, 'currentyear' => $currentyear]);
     }
 
     /**

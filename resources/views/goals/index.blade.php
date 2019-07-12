@@ -23,7 +23,7 @@
                             <tbody>
                             
                                 @foreach($combinedgoals as $goal)
-                                    @if($currentweek === $goal->weekofyear)
+                                    @if($currentweek === $goal->weekofyear and $currentyear === $year)
                                         <tr class="bg-primary">
                                     @else 
                                         <tr>
