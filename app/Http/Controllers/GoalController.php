@@ -115,7 +115,7 @@ class GoalController extends Controller
     public function edit($year, $weekofyear)
     {
         $goal = Goal::where('user_id', Auth::user()->id)->where('year', $year)->where('weekofyear', $weekofyear)->first();
-        
+
         return view('goals.editgoal', compact('goal'));
     }
 
@@ -128,7 +128,11 @@ class GoalController extends Controller
      */
     public function update(Request $request, Goal $goal)
     {
-        //
+        $input = $request->all();
+
+        $goal->update($input);
+
+        return redirect('/dashboard/goals');
     }
 
     /**
@@ -139,6 +143,8 @@ class GoalController extends Controller
      */
     public function destroy(Goal $goal)
     {
-        //
+        $goal->delete();
+
+        return redirect('dashboard/goals');
     }
 }

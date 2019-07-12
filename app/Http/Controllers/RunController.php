@@ -128,10 +128,7 @@ class RunController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Run $run)
-    {
-        //
-        $run = Run::findOrFail($run->id);
-        
+    {   
         $run->delete();
 
         return redirect('dashboard/runs');
