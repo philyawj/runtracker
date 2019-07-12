@@ -1,10 +1,7 @@
+throughout app send user back to page they were previously on
 
-I want to find the min year someone has created a goal
-then increase until current year
-then add one
 
-add a show goal page that's next year or year after. dashboard/goals/2020
-create a dropdown for this on the goals page - two years ahead and 2 back
+
 
 
 need to add validation to edit/add goals - must only input number

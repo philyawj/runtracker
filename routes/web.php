@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'reset' => false]);
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
