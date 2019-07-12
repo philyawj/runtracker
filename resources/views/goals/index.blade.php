@@ -9,7 +9,7 @@
 
                 <div class="card-body">
 
-                <h2>Goals in the year {{$currentyear}}.</h2>
+                <h2>Goals in the year {{$year}}.</h2>
                 
 
                     <table class="table table-sm">
@@ -27,7 +27,7 @@
                                         <th scope="row">{{$goal->weekofyear}}</th>
                                         <td>{{$goal->miles}}</td>
                                         @if($goal->miles > 0)
-                                            <td>Edit</td>
+                                            <td><a href="{{route('goals.edit', [$year,$goal->weekofyear])}}">Edit</a></td>
                                         @else 
                                             <td>Add</td>
                                         @endif

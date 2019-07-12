@@ -70,9 +70,6 @@ class DashboardController extends Controller
         // $milesthisweek = Run::where('user_id', $user_id)->where('weekofyear', $currentweek)->get()->sum('miles');
         $milesthisweek = Run::where('user_id', $user_id)->where('weekofyear', $currentweek)->get()->sum('miles');
 
-        
-        
-
         // how many miles run last month
         $lastweek = Carbon::now()->weekOfYear - 1;
         $mileslastweek = Run::all()->where('user_id', $user_id)->where('weekofyear', $lastweek)->sum('miles');
