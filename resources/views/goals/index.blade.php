@@ -10,17 +10,27 @@
                 <div class="card-body">
 
                 {{$year}}
-                <select name="" id="">
-                    @foreach($goalyeararray as $goalyear)
-                    
-                        @if($goalyear === $currentyear)
-                            <option selected="selected" value="">{{$goalyear}}</option>
-                        @else
-                            <option value="">{{$goalyear}}</option>
-                        @endif
+                <form method="POST" action="" autocomplete="off">
+                        {{ csrf_field() }}
 
-                    @endforeach
-                </select>
+                        <select name="year" id="">
+                            @foreach($goalyeararray as $goalyear)
+                            
+                                @if($goalyear === $year)
+                                    <option selected="selected" value={{$goalyear}}>{{$goalyear}}</option>
+                                @else
+                                    <option value={{$goalyear}}>{{$goalyear}}</option>
+                                @endif
+
+                            @endforeach
+                        </select>
+                        
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Go to goal year">
+                        </div>
+
+                    </form>
+                
 
                
 

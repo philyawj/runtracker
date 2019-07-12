@@ -175,7 +175,11 @@ class GoalController extends Controller
         }
 
         $test = in_array($year, $goalyeararray);
-        echo "The value of test is " . strval($test) ;
+        if($test === true) {
+            echo "YES IT EXSISTS";
+        } else {
+            echo "DOES NOT EXIST";
+        }
         
         return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek, 'currentyear' => $currentyear, 'goalyeararray' => $goalyeararray]);
     }
