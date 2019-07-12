@@ -23,7 +23,11 @@
                             <tbody>
                             
                                 @foreach($combinedgoals as $goal)
-                                    <tr>
+                                    @if($currentweek === $goal->weekofyear)
+                                        <tr class="bg-primary">
+                                    @else 
+                                        <tr>
+                                    @endif
                                         <th scope="row">{{$goal->weekofyear}}</th>
                                         <td>{{$goal->miles}}</td>
                                         @if($goal->miles > 0)

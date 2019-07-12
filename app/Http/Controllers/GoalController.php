@@ -22,6 +22,8 @@ class GoalController extends Controller
         // default index page shows the current year
         $goals = Goal::select('weekofyear', 'miles')->where('user_id', Auth::user()->id)->where('year', $year)->get();
 
+        $currentweek = Carbon::now()->weekOfYear;
+
         $combinedgoals = collect();
 
         $weeks = collect([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52]);
@@ -43,7 +45,7 @@ class GoalController extends Controller
 
         }
         
-        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks]);
+        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek]);
     }
 
     /**

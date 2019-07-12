@@ -1,7 +1,7 @@
-Add a goal by week /2019/4/create
-edit a goal by week /2019/52/edit
+next to each goal week - include the start date month/day - end date month/day
 
 add a show goal page that's next year or year after. dashboard/goals/2020
+create a dropdown for this on the goals page - two years ahead and 2 back
 
 
 need to add validation to edit/add goals - must only input number
