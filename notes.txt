@@ -1,13 +1,11 @@
+change how dates are displayed on front end Day/Month/Year throughout
+
 throughout app send user back to page they were previously on
-
-
-
 
 
 need to add validation to edit/add goals - must only input number
 on goal create page - check if goal already exists under that page. If yes, go back to goals page and flash a message.
-
-turn off password reset routes/ability
+don't allow edit of url. if not legit reroute to dashboard with error
 
 add auth check on dashboard/
 

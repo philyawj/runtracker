@@ -25,17 +25,14 @@
                     <p>Miles this month: {{$milesthismonth}}</p>
                     <p>Miles last month: {{$mileslastmonth}}</p>
 
-                    <p>Last 3 runs</p>
+                    <h5>Last 3 Runs</h5>
                     <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">user_id</th>
                                     <th scope="col">date</th>
                                     <th scope="col">miles</th>
                                     <th scope="col">time</th>
                                     <th scope="col">mph</th>
-                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,9 +40,7 @@
                             @foreach($lastthreeruns as $lastthreerun)
 
                                 <tr>
-                                    <th scope="row">{{$lastthreerun->id}}</th>
-                                    <td>{{$lastthreerun->user_id}}</td>
-                                    <td>{{$lastthreerun->date}}</td>
+                                    <td scope="row">{{$lastthreerun->date}}</td>
                                     <td>{{$lastthreerun->miles}}</td>
                                     <td>{{date("H:i:s", $lastthreerun->seconds)}}</td>
                                     <td>{{$lastthreerun->mph}}</td>
@@ -56,16 +51,7 @@
                             </tbody>
                     </table>
 
-                    <ul>
-                        
-
-                        <li>3.  w/ see more </li>
-
-                        <li>1.5 Progress to weekly goal if there is one</li>
-               
-                        <li>2.5 Progress to monthly goal if there is one.</li>
-                        
-                    </ul>
+                    <a class="btn btn-primary" href="{{route('runs.index')}}">See more runs</a>
 
                 </div>
             </div>
