@@ -55,12 +55,7 @@ class GoalController extends Controller
         }
     }
 
-    public function index()
-    {
-        // only return goals from logged in user
-        // default index page shows the current year
-        $goals = Goal::select('week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $this->current_year)->get();
-
+    public function init_weekly_goals($which_year, $goals) {
         foreach($this->weeks as $week) {
             $o = new \stdClass();
 
@@ -72,23 +67,30 @@ class GoalController extends Controller
                 $o->week_of_year = $week;
                 $o->miles = 'not set';
                 $start_date = Carbon::now();
-                $start_date->setISODate($this->current_year,$week);
+                $start_date->setISODate($which_year,$week);
                 $o->startofweek = $start_date->startOfWeek()->format('n/j');
                 $end_date = Carbon::now();
-                $end_date->setISODate($this->current_year,$week);
+                $end_date->setISODate($which_year,$week);
                 $o->endofweek = $end_date->endOfWeek()->format('n/j');
                 $this->combined_goals->push($o);
             } else {
                 $start_date = Carbon::now();
-                $start_date->setISODate($this->current_year,$week);
+                $start_date->setISODate($which_year,$week);
                 $find_miles->startofweek = $start_date->startOfWeek()->format('n/j');
                 $end_date = Carbon::now();
-                $end_date->setISODate($this->current_year,$week);
+                $end_date->setISODate($which_year,$week);
                 $find_miles->endofweek = $end_date->endOfWeek()->format('n/j');
                 $this->combined_goals->push($find_miles);
             }
-
         }
+    }
+
+    public function index()
+    {
+        // default index page shows the current year
+        $goals = Goal::select('week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $this->current_year)->get();
+
+        $this->init_weekly_goals($this->current_year, $goals);
 
         $this->init_dropdowns();
         
@@ -139,34 +141,7 @@ class GoalController extends Controller
 
         $goals = Goal::select('week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $selected_year)->get();
 
-        foreach($this->weeks as $week) {
-            $o = new \stdClass();
-
-            $find_miles = $goals->filter(function($item) use ($week) {
-                return $item->week_of_year == $week;
-            })->first();
-
-            if($find_miles === null) {
-                $o->week_of_year = $week;
-                $o->miles = 'not set';
-                $start_date = Carbon::now();
-                $start_date->setISODate($selected_year,$week);
-                $o->startofweek = $start_date->startOfWeek()->format('n/j');
-                $end_date = Carbon::now();
-                $end_date->setISODate($selected_year,$week);
-                $o->endofweek = $end_date->endOfWeek()->format('n/j');
-                $this->combined_goals->push($o);
-            } else {
-                $start_date = Carbon::now();
-                $start_date->setISODate($selected_year,$week);
-                $find_miles->startofweek = $start_date->startOfWeek()->format('n/j');
-                $end_date = Carbon::now();
-                $end_date->setISODate($selected_year,$week);
-                $find_miles->endofweek = $end_date->endOfWeek()->format('n/j');
-                $this->combined_goals->push($find_miles);
-            }
-
-        }
+        $this->init_weekly_goals($selected_year, $goals);
 
         $this->init_dropdowns();
 
