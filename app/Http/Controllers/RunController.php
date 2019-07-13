@@ -15,10 +15,39 @@ class RunController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    private $user_id;
+    private $input;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->user_id = auth()->user()->id;
+            return $next($request);
+        });
+    }
+
+    public function process_run($request)
+    {
+        $this->input = $request->all();
+
+        $convertedSeconds = ($this->input['hours'] * 3600) + ($this->input['minutes'] * 60) + $this->input['seconds'];
+        $this->input['seconds'] = $convertedSeconds;
+
+        $this->input['user_id'] = $this->user_id;
+
+        $this->input['mph'] = $this->input['miles'] / ($convertedSeconds / 3600);
+
+        $dt = Carbon::parse($this->input['date']);
+        $this->input['year'] = $dt->year;
+        $this->input['month'] = $dt->month;
+        $this->input['week_of_year'] = $dt->weekOfYear;
+    }
+
     public function index()
     {
         // only return runs from logged in user
-        $runs = Run::all()->where('user_id', Auth::user()->id);
+        $runs = Run::all()->where('user_id', $this->user_id);
 
         return view('runs.index', compact('runs'));
     }
@@ -43,21 +72,9 @@ class RunController extends Controller
     public function store(RunRequest $request)
     {
         //
-        $input = $request->all();
+        $this->process_run($request);
 
-        $convertedSeconds = ($input['hours'] * 3600) + ($input['minutes'] * 60) + $input['seconds'];
-        $input['seconds'] = $convertedSeconds;
-
-        $input['user_id'] = Auth::user()->id;
-
-        $input['mph'] = $input['miles'] / ($convertedSeconds / 3600);
-
-        $dt = Carbon::parse($input['date']);
-        $input['year'] = $dt->year;
-        $input['month'] = $dt->month;
-        $input['week_of_year'] = $dt->weekOfYear;
-
-        Run::create($input);
+        Run::create($this->input);
 
         return redirect('/dashboard/runs');
     }
@@ -102,21 +119,9 @@ class RunController extends Controller
     public function update(RunRequest $request, Run $run)
     {
         //
-        $input = $request->all();
+        $this->process_run($request);
 
-        $convertedSeconds = ($input['hours'] * 3600) + ($input['minutes'] * 60) + $input['seconds'];
-        $input['seconds'] = $convertedSeconds;
-
-        $input['user_id'] = Auth::user()->id;
-
-        $input['mph'] = $input['miles'] / ($convertedSeconds / 3600);
-
-        $dt = Carbon::parse($input['date']);
-        $input['year'] = $dt->year;
-        $input['month'] = $dt->month;
-        $input['week_of_year'] = $dt->weekOfYear;
-
-        $run->update($input);
+        $run->update($this->input);
 
         return redirect('/dashboard/runs');
     }

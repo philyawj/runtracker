@@ -203,10 +203,6 @@ class GoalController extends Controller
 
      /**
      * Reroute the goals dropdown submit to correct page
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Goal  $goal
-     * @return \Illuminate\Http\Response
      */
     public function reroute(Request $request)
     {
