@@ -10,8 +10,6 @@ need to add validation to edit/add goals - must only input number
 on goal create page - check if goal already exists under that page. If yes, go back to goals page and flash a message.
 don't allow edit of url. if not legit reroute to dashboard with error
 
-add auth check on dashboard/
-
 ADD/EDIT RUN:
 date picker --> and add validation to add specific format, maybe with regex
 input validtion for all types --> make seconds be at least 1, with regex

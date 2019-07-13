@@ -17,14 +17,18 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false, 'reset' => false]);
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::resource('/dashboard/runs', 'RunController');
-Route::resource('/dashboard/goals', 'GoalController', ['parameters' => ['goal' => 'year'], 'except' => [ 'edit', 'create']]);
+// users must be logged in to see dashboard
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    
+    Route::resource('/dashboard/runs', 'RunController');
+    Route::resource('/dashboard/goals', 'GoalController', ['parameters' => ['goal' => 'year'], 'except' => [ 'edit', 'create']]);
+    
+    Route::get('/dashboard/goals/{year}/{week_of_year}/edit', 'GoalController@edit')->name('goals.edit');
+    Route::get('/dashboard/goals/{year}/{week_of_year}/create', 'GoalController@create')->name('goals.create');
+    Route::post('/dashboard/goals/reroute', 'GoalController@reroute')->name('goals.reroute');
+});
 
-Route::get('/dashboard/goals/{year}/{week_of_year}/edit', 'GoalController@edit')->name('goals.edit');
-Route::get('/dashboard/goals/{year}/{week_of_year}/create', 'GoalController@create')->name('goals.create');
-Route::post('/dashboard/goals/reroute', 'GoalController@reroute')->name('goals.reroute');
