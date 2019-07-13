@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     
-                    <form method="POST" action="{{route('goals.update', $goal->id)}}">
+                    <form method="POST" action="{{route('goals.update', $goal->id)}}" autocomplete="off">
                     <input type="hidden" name="_method" value="PATCH">
                         {{ csrf_field() }}
                         <div class="form-group">
