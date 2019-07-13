@@ -16,12 +16,12 @@ class GoalController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    private $currentweek;
-    private $currentyear;
-    private $combinedgoals;
+    private $current_week;
+    private $current_year;
+    private $combined_goals;
     private $weeks;
     private $user_id;
-    private $goalyeararray;
+    private $goal_year_array;
 
     public function __construct()
     {
@@ -30,28 +30,28 @@ class GoalController extends Controller
             return $next($request);
         });
 
-        $this->currentyear = Carbon::now()->year;
-        $this->currentweek = Carbon::now()->weekOfYear;
-        $this->combinedgoals = collect();
+        $this->current_year = Carbon::now()->year;
+        $this->current_week = Carbon::now()->weekOfYear;
+        $this->combined_goals = collect();
         $this->weeks = collect([1, 2, 3, 4, 5, 6, 7, 8, 9 , 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52]);
 
     }
 
     public function init_dropdowns() {
         // start by finding the first year the current user has set a goal
-        $firstgoalyear = Goal::select('year')->where('user_id', $this->user_id)->orderBy('year', 'asc')->first();
-        $firstgoalyear = $firstgoalyear['year'];
+        $first_goal_year = Goal::select('year')->where('user_id', $this->user_id)->orderBy('year', 'asc')->first();
+        $first_goal_year = $first_goal_year['year'];
 
         // one year in future
-        $lastgoalyear = $this->currentyear + 1;
+        $last_goal_year = $this->current_year + 1;
 
-        $this->goalyeararray = array();
-        $yearcounter = $firstgoalyear;
+        $this->goal_year_array = array();
+        $year_counter = $first_goal_year;
 
         // create all years in between first goal year and 1 year ahead of current year
-        while($yearcounter <= $lastgoalyear){
-            array_push($this->goalyeararray, $yearcounter);
-            $yearcounter++;
+        while($year_counter <= $last_goal_year){
+            array_push($this->goal_year_array, $year_counter);
+            $year_counter++;
         }
     }
 
@@ -59,40 +59,40 @@ class GoalController extends Controller
     {
         // only return goals from logged in user
         // default index page shows the current year
-        $goals = Goal::select('weekofyear', 'miles')->where('user_id', $this->user_id)->where('year', $this->currentyear)->get();
+        $goals = Goal::select('weekofyear', 'miles')->where('user_id', $this->user_id)->where('year', $this->current_year)->get();
 
         foreach($this->weeks as $week) {
             $o = new \stdClass();
 
-            $findmiles = $goals->filter(function($item) use ($week) {
+            $find_miles = $goals->filter(function($item) use ($week) {
                 return $item->weekofyear == $week;
             })->first();
 
-            if($findmiles === null) {
+            if($find_miles === null) {
                 $o->weekofyear = $week;
                 $o->miles = 'not set';
-                $startdate = Carbon::now();
-                $startdate->setISODate($this->currentyear,$week);
-                $o->startofweek = $startdate->startOfWeek()->format('n/j');
-                $enddate = Carbon::now();
-                $enddate->setISODate($this->currentyear,$week);
-                $o->endofweek = $enddate->endOfWeek()->format('n/j');
-                $this->combinedgoals->push($o);
+                $start_date = Carbon::now();
+                $start_date->setISODate($this->current_year,$week);
+                $o->startofweek = $start_date->startOfWeek()->format('n/j');
+                $end_date = Carbon::now();
+                $end_date->setISODate($this->current_year,$week);
+                $o->endofweek = $end_date->endOfWeek()->format('n/j');
+                $this->combined_goals->push($o);
             } else {
-                $startdate = Carbon::now();
-                $startdate->setISODate($this->currentyear,$week);
-                $findmiles->startofweek = $startdate->startOfWeek()->format('n/j');
-                $enddate = Carbon::now();
-                $enddate->setISODate($this->currentyear,$week);
-                $findmiles->endofweek = $enddate->endOfWeek()->format('n/j');
-                $this->combinedgoals->push($findmiles);
+                $start_date = Carbon::now();
+                $start_date->setISODate($this->current_year,$week);
+                $find_miles->startofweek = $start_date->startOfWeek()->format('n/j');
+                $end_date = Carbon::now();
+                $end_date->setISODate($this->current_year,$week);
+                $find_miles->endofweek = $end_date->endOfWeek()->format('n/j');
+                $this->combined_goals->push($find_miles);
             }
 
         }
 
         $this->init_dropdowns();
         
-        return view('goals.index', ['combinedgoals' => $this->combinedgoals, 'year' => $this->currentyear, 'weeks' => $this->weeks, 'currentweek' => $this->currentweek, 'currentyear' => $this->currentyear, 'goalyeararray' => $this->goalyeararray]);
+        return view('goals.index', ['combined_goals' => $this->combined_goals, 'year' => $this->current_year, 'weeks' => $this->weeks, 'current_week' => $this->current_week, 'current_year' => $this->current_year, 'goal_year_array' => $this->goal_year_array]);
     }
 
     /**
@@ -142,35 +142,35 @@ class GoalController extends Controller
         foreach($this->weeks as $week) {
             $o = new \stdClass();
 
-            $findmiles = $goals->filter(function($item) use ($week) {
+            $find_miles = $goals->filter(function($item) use ($week) {
                 return $item->weekofyear == $week;
             })->first();
 
-            if($findmiles === null) {
+            if($find_miles === null) {
                 $o->weekofyear = $week;
                 $o->miles = 'not set';
-                $startdate = Carbon::now();
-                $startdate->setISODate($year,$week);
-                $o->startofweek = $startdate->startOfWeek()->format('n/j');
-                $enddate = Carbon::now();
-                $enddate->setISODate($year,$week);
-                $o->endofweek = $enddate->endOfWeek()->format('n/j');
-                $this->combinedgoals->push($o);
+                $start_date = Carbon::now();
+                $start_date->setISODate($year,$week);
+                $o->startofweek = $start_date->startOfWeek()->format('n/j');
+                $end_date = Carbon::now();
+                $end_date->setISODate($year,$week);
+                $o->endofweek = $end_date->endOfWeek()->format('n/j');
+                $this->combined_goals->push($o);
             } else {
-                $startdate = Carbon::now();
-                $startdate->setISODate($year,$week);
-                $findmiles->startofweek = $startdate->startOfWeek()->format('n/j');
-                $enddate = Carbon::now();
-                $enddate->setISODate($year,$week);
-                $findmiles->endofweek = $enddate->endOfWeek()->format('n/j');
-                $this->combinedgoals->push($findmiles);
+                $start_date = Carbon::now();
+                $start_date->setISODate($year,$week);
+                $find_miles->startofweek = $start_date->startOfWeek()->format('n/j');
+                $end_date = Carbon::now();
+                $end_date->setISODate($year,$week);
+                $find_miles->endofweek = $end_date->endOfWeek()->format('n/j');
+                $this->combined_goals->push($find_miles);
             }
 
         }
 
         $this->init_dropdowns();
 
-        return view('goals.index', ['combinedgoals' => $this->combinedgoals, 'year' => $year, 'weeks' => $this->weeks, 'currentweek' => $this->currentweek, 'currentyear' => $this->currentyear, 'goalyeararray' => $this->goalyeararray]);
+        return view('goals.index', ['combined_goals' => $this->combined_goals, 'year' => $year, 'weeks' => $this->weeks, 'current_week' => $this->current_week, 'current_year' => $this->current_year, 'goal_year_array' => $this->goal_year_array]);
     }
 
     /**

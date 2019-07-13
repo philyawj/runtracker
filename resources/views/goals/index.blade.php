@@ -13,7 +13,7 @@
                         {{ csrf_field() }}
 
                         <select name="gotoyear" id="">
-                            @foreach($goalyeararray as $goalyear)
+                            @foreach($goal_year_array as $goalyear)
                             
                                 @if($goalyear === $year)
                                     <option selected="selected" value={{$goalyear}}>{{$goalyear}}</option>
@@ -44,8 +44,8 @@
                             </thead>
                             <tbody>
                             
-                                @foreach($combinedgoals as $goal)
-                                    @if($currentweek === $goal->weekofyear and $currentyear === $year)
+                                @foreach($combined_goals as $goal)
+                                    @if($current_week === $goal->weekofyear and $current_year === $year)
                                         <tr class="bg-primary">
                                     @else 
                                         <tr>

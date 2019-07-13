@@ -40,10 +40,10 @@ class DashboardController extends Controller
 
         $lastthreeruns = Run::all()->where('user_id', $user_id)->sortByDesc('date')->take(3);
 
-        $currentyear = Carbon::now()->year;
-        $currentweek = Carbon::now()->weekOfYear;
+        $current_year = Carbon::now()->year;
+        $current_week = Carbon::now()->weekOfYear;
 
-        $milesthisweek = Run::where('user_id', $user_id)->where('weekofyear', $currentweek)->get()->sum('miles');
+        $milesthisweek = Run::where('user_id', $user_id)->where('weekofyear', $current_week)->get()->sum('miles');
 
         // how many miles run last month
         $lastweek = Carbon::now()->weekOfYear - 1;
@@ -57,7 +57,7 @@ class DashboardController extends Controller
         $lastmonth = Carbon::now()->month - 1;
         $mileslastmonth = Run::all()->where('user_id', $user_id)->where('month', $lastmonth)->sum('miles');
 
-        $thisweekgoal = Goal::select('miles')->where('user_id', $user_id)->where('weekofyear', $currentweek)->first();
+        $thisweekgoal = Goal::select('miles')->where('user_id', $user_id)->where('weekofyear', $current_week)->first();
         $thisweekgoal = $thisweekgoal['miles'];
 
         if(isset($thisweekgoal)){
@@ -70,6 +70,6 @@ class DashboardController extends Controller
             $weeklyprogress = 1;
         }
         
-        return view('dashboard', compact('lastthreeruns'), ['milesthisweek' => $milesthisweek, 'mileslastweek' => $mileslastweek, 'milesthismonth' => $milesthismonth, 'mileslastmonth' => $mileslastmonth, 'thisweekgoal' => $thisweekgoal, 'currentweek' => $currentweek, 'currentyear' => $currentyear, 'weeklyprogress' => $weeklyprogress]);
+        return view('dashboard', compact('lastthreeruns'), ['milesthisweek' => $milesthisweek, 'mileslastweek' => $mileslastweek, 'milesthismonth' => $milesthismonth, 'mileslastmonth' => $mileslastmonth, 'thisweekgoal' => $thisweekgoal, 'current_week' => $current_week, 'current_year' => $current_year, 'weeklyprogress' => $weeklyprogress]);
     }
 }
