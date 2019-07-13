@@ -10648,7 +10648,7 @@ a.text-dark:focus {
   border-radius: 0;
   padding: 25px;
   box-shadow: none;
-  border: 1px solid purple;
+  border: 1px solid #7d7d7d;
 }
 
 .datepicker table tr th,
@@ -10693,19 +10693,19 @@ a.text-dark:focus {
 .datepicker table tr td.active.active.focus,
 .datepicker table tr td.active.highlighted.active.focus {
   color: #fff;
-  background-color: blue;
+  background-color: #7774e7;
   border-color: transparent;
 }
 
 .datepicker table tr td span:hover,
 .datepicker table tr td span.focused {
-  background: blue;
+  background: #7774e7;
   color: #fff;
 }
 
 .datepicker table tr td.day:hover,
 .datepicker table tr td.focused {
-  background: blue;
+  background: #7774e7;
   color: #fff;
   cursor: pointer;
 }
@@ -10714,7 +10714,7 @@ a.text-dark:focus {
 .datepicker .prev:hover,
 .datepicker .next:hover,
 .datepicker tfoot tr th:hover {
-  background: blue;
+  background: #7774e7;
   color: #fff;
   cursor: pointer;
 }
@@ -10727,7 +10727,7 @@ a.text-dark:focus {
   border-radius: 0;
   padding: 30px;
   box-shadow: none;
-  border: 1px solid purple;
+  border: 1px solid #7d7d7d;
 }
 
 .daterangepicker .input-mini {
@@ -10757,23 +10757,23 @@ a.text-dark:focus {
 
 .daterangepicker td.available:hover,
 .daterangepicker th.available:hover {
-  background: blue;
+  background: #7774e7;
   color: #fff;
 }
 
 .daterangepicker td.in-range {
   background-color: transparent;
-  color: blue;
+  color: #7774e7;
 }
 
 .daterangepicker td.active {
-  background-color: blue;
+  background-color: #7774e7;
   border-color: transparent;
   color: #fff;
 }
 
 .daterangepicker td.active:hover {
-  background-color: blue;
+  background-color: #7774e7;
   border-color: transparent;
   color: #fff;
 }
@@ -10794,7 +10794,7 @@ a.text-dark:focus {
 .daterangepicker select.minuteselect,
 .daterangepicker select.secondselect,
 .daterangepicker select.ampmselect {
-  border: 1px solid purple;
+  border: 1px solid #7d7d7d;
   min-height: 30px;
 }
 
