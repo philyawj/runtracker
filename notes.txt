@@ -1,7 +1,13 @@
+find a place to store some global variables like $user_id
+find how to reuse functions within parts of the controller like index and show
+
+stats page to select this week / last week / this month / last month / this year / last year / all time 
+distance travelled, total time, average mph
+achievements like # of 5ks, 10ks, half marathons, 15ks, full marathons. 
+
 change how dates are displayed on front end Day/Month/Year throughout
 
 throughout app send user back to page they were previously on
-
 
 need to add validation to edit/add goals - must only input number
 on goal create page - check if goal already exists under that page. If yes, go back to goals page and flash a message.
@@ -16,16 +22,13 @@ validate to catch when mph breaks with a near divide by zero. maybe a run must b
 when mph calc is over 20 shoot an error. 
 don't allow a date in the future
 run has to be less than 24 hours on creating and edit
-
-
+distance less than 3 digits
 
 create two different layouts for daily create run to include the datepicker
 and another for weekly to include the weekly date picker
+possibly use the bootstrap datepicker for better styling
 
 replace welcome.blade with login template and setup the rerouting depending on login or not
-
-
-add counts for number of times achieved a 5k 10k half marathon full marathon
 
 create admin panel to see every user. last login date. active users this week/month. last 10 runs across all users.
 

@@ -14,7 +14,7 @@
                         
                     @else
                         <p>Goal this week: {{$thisweekgoal}}</p>
-                        <p>Progress to weekly goal</p>
+                        <p class="mb-0">Progress to weekly goal</p>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: {{$weeklyprogress}}%" aria-valuenow="{{$weeklyprogress}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
