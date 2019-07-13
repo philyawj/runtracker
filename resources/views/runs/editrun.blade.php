@@ -1,4 +1,4 @@
-@extends('layouts.runjquery')
+@extends('layouts.runbootstrap')
 
 @section('content')
 <div class="container">

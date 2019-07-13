@@ -9,37 +9,36 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- PUBLIC JQUERY DATEPICKER -->
-    <!-- #todo make local -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
-    <!-- JQUERY DATEPICKER SCRIPT -->
-    <!-- #todo make local -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-    $( function() {
-        $( "#addrun, #editrun" ).datepicker({
-        firstDay: 1,
-        dateFormat: "yy-mm-dd"
-        });
-        // make read only -- #todo need to add readonly styling
-        $("#addrun, #editrun").attr( 'readOnly' , 'true' );
-    } );
-
     
-    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+  
+    <script type="text/javascript">
+
+    $(function () {
+        $('#addrun, #editrun').datepicker();
+
+        $("#addrun, #editrun").attr( 'readOnly' , 'true' );
+    });
+
+    </script>  
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
+
 </head>
 <body>
     <div id="app">

@@ -20,9 +20,10 @@ run has to be less than 24 hours on creating and edit
 distance less than 3 digits
 
 create two different layouts for daily create run to include the datepicker
-and another for weekly to include the weekly date picker
 possibly use the bootstrap datepicker for better styling
 
 create admin panel to see every user. last login date. active users this week/month. last 10 runs across all users.
 
 add pagination to history so it only shows 15 at a time.
+
+fix this error by getting rid of vue: Vue warn]: Cannot find element: #app
