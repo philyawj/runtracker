@@ -15,18 +15,36 @@ class GoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
+    private $currentweek;
+    private $currentyear;
+
+
+
+    // functions that appear throughout the model controller
+    public function __construct()
+    {
+        $this->currentyear = Carbon::now()->year;
+        $this->currentweek = Carbon::now()->weekOfYear;
+    }
+
+    
+
     public function index()
     {
         // only return goals from logged in user
+     
+        // dd($this->currentweek);
 
-        $currentyear = Carbon::now()->year;
-        $currentweek = Carbon::now()->weekOfYear;
+        // $currentweek = $this->$currentweek;
+        // $currentyear = $this->$currentyear;
+        // $currentyear = Carbon::now()->year;
+        // $currentweek = Carbon::now()->weekOfYear;
 
-        $year = Carbon::now()->year;
+        // $year = Carbon::now()->year;
         // default index page shows the current year
-        $goals = Goal::select('weekofyear', 'miles')->where('user_id', Auth::user()->id)->where('year', $year)->get();
-
-        $currentweek = Carbon::now()->weekOfYear;
+        $goals = Goal::select('weekofyear', 'miles')->where('user_id', Auth::user()->id)->where('year', $this->currentyear)->get();
 
         $combinedgoals = collect();
 
@@ -43,18 +61,18 @@ class GoalController extends Controller
                 $o->weekofyear = $week;
                 $o->miles = 'not set';
                 $startdate = Carbon::now();
-                $startdate->setISODate($year,$week);
+                $startdate->setISODate($this->currentyear,$week);
                 $o->startofweek = $startdate->startOfWeek()->format('n/j');
                 $enddate = Carbon::now();
-                $enddate->setISODate($year,$week);
+                $enddate->setISODate($this->currentyear,$week);
                 $o->endofweek = $enddate->endOfWeek()->format('n/j');
                 $combinedgoals->push($o);
             } else {
                 $startdate = Carbon::now();
-                $startdate->setISODate($year,$week);
+                $startdate->setISODate($this->currentyear,$week);
                 $findmiles->startofweek = $startdate->startOfWeek()->format('n/j');
                 $enddate = Carbon::now();
-                $enddate->setISODate($year,$week);
+                $enddate->setISODate($this->currentyear,$week);
                 $findmiles->endofweek = $enddate->endOfWeek()->format('n/j');
                 $combinedgoals->push($findmiles);
             }
@@ -65,7 +83,7 @@ class GoalController extends Controller
         $firstgoalyear = Goal::select('year')->where('user_id', Auth::user()->id)->orderBy('year', 'asc')->first();
         $firstgoalyear = $firstgoalyear['year'];
 
-        $lastgoalyear = $currentyear + 1;
+        $lastgoalyear = $this->currentyear + 1;
 
         $goalyeararray = array();
         $yearcounter = $firstgoalyear;
@@ -75,7 +93,7 @@ class GoalController extends Controller
             $yearcounter++;
         }
         
-        return view('goals.index', compact('combinedgoals'), ['year' => $year, 'weeks' => $weeks, 'currentweek' => $currentweek, 'currentyear' => $currentyear, 'goalyeararray' => $goalyeararray]);
+        return view('goals.index', compact('combinedgoals'), ['year' => $this->currentyear, 'weeks' => $weeks, 'currentweek' => $this->currentweek, 'currentyear' => $this->currentyear, 'goalyeararray' => $goalyeararray]);
     }
 
     /**

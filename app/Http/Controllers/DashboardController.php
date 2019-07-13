@@ -31,33 +31,18 @@ class DashboardController extends Controller
 
         $user_id = Auth::user()->id;
 
-        
-
-        // $milesperweek = Run::select('weekofyear', 'miles')->where('user_id', $user_id)->groupBy('weekofyear')->sum('miles');
         $milesperweek = Run::select('weekofyear', 'miles')->where('user_id', $user_id)->get();
-        // echo $milesperweek;
 
         $groupedmiles = $milesperweek->groupBy('weekofyear')->map(function ($row){
             return $row->sum('miles');
         });
+        echo $groupedmiles;
 
-        // echo $groupedmiles;
-
-
-
-        // only return last 3 runs from logged in user
         $lastthreeruns = Run::all()->where('user_id', $user_id)->sortByDesc('date')->take(3);
-        // $lastthreeruns = Run::all();
 
-        // echo $lastthreeruns;
-
-        // how many miles run thus far this week
         $currentyear = Carbon::now()->year;
         $currentweek = Carbon::now()->weekOfYear;
 
-        // echo $currentweek . " is the current week";
-        // $milesthisweek = Run::all()->where('user_id', $user_id)->where('weekofyear', $currentweek)->sum('miles');
-        // $milesthisweek = Run::where('user_id', $user_id)->where('weekofyear', $currentweek)->get()->sum('miles');
         $milesthisweek = Run::where('user_id', $user_id)->where('weekofyear', $currentweek)->get()->sum('miles');
 
         // how many miles run last month
@@ -74,7 +59,6 @@ class DashboardController extends Controller
 
         $thisweekgoal = Goal::select('miles')->where('user_id', $user_id)->where('weekofyear', $currentweek)->first();
         $thisweekgoal = $thisweekgoal['miles'];
-        // dd($thisweekgoal);
 
         if(isset($thisweekgoal)){
             $weeklyprogress = round(($milesthisweek / $thisweekgoal) * 100, 2);
