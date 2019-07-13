@@ -23,8 +23,6 @@ create two different layouts for daily create run to include the datepicker
 and another for weekly to include the weekly date picker
 possibly use the bootstrap datepicker for better styling
 
-replace welcome.blade with login template and setup the rerouting depending on login or not
-
 create admin panel to see every user. last login date. active users this week/month. last 10 runs across all users.
 
 add pagination to history so it only shows 15 at a time.
