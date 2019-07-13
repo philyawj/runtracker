@@ -1,6 +1,8 @@
 find a place to store some global variables like $user_id
 find how to reuse functions within parts of the controller like index and show
 
+make my variables lowercase seperated by underscore
+
 stats page to select this week / last week / this month / last month / this year / last year / all time 
 distance travelled, total time, average mph
 achievements like # of 5ks, 10ks, half marathons, 15ks, full marathons. 
