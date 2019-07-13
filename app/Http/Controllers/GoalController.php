@@ -22,6 +22,7 @@ class GoalController extends Controller
     private $weeks;
     private $user_id;
     private $goal_year_array;
+    private $weekly_goals;
 
     public function __construct()
     {
@@ -85,12 +86,16 @@ class GoalController extends Controller
         }
     }
 
+    public function select_weekly_goals($arg) {
+        $this->weekly_goals = Goal::select('week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $arg)->get();
+    }
+
     public function index()
     {
-        // default index page shows the current year
-        $goals = Goal::select('week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $this->current_year)->get();
+        // index page shows the current year
+        $this->select_weekly_goals($this->current_year);
 
-        $this->init_weekly_goals($this->current_year, $goals);
+        $this->init_weekly_goals($this->current_year, $this->weekly_goals);
 
         $this->init_dropdowns();
         
@@ -136,14 +141,20 @@ class GoalController extends Controller
     // public function show(Goal $goal)
     public function show($selected_year)
     {
-        // convert year to string
+        // convert year to int
         $selected_year = (int)$selected_year;
 
-        $goals = Goal::select('week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $selected_year)->get();
+        $this->select_weekly_goals($selected_year);
 
-        $this->init_weekly_goals($selected_year, $goals);
+        $this->init_weekly_goals($selected_year, $this->weekly_goals);
 
         $this->init_dropdowns();
+
+        // if user manually changes url to year that doesn't exists, automatically route to most current year. 
+        $is_goal_year = in_array($selected_year, $this->goal_year_array);
+        if($is_goal_year === false) {
+            return redirect('dashboard/goals');
+        } 
 
         return view('goals.index', ['combined_goals' => $this->combined_goals, 'year' => $selected_year, 'weeks' => $this->weeks, 'current_week' => $this->current_week, 'current_year' => $this->current_year, 'goal_year_array' => $this->goal_year_array]);
     }
