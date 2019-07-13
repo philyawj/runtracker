@@ -11,6 +11,7 @@
                     <a href="{{url('login/google')}}" class="btn btn-primary">
                         Login with Google
                     </a>
+                    <h1>get rid of this page</h1>
                 </div>
             </div>
         </div>

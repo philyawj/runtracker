@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home')->middleware('guest');
 
 Auth::routes(['register' => false, 'reset' => false]);
 
@@ -32,3 +32,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/dashboard/goals/reroute', 'GoalController@reroute')->name('goals.reroute');
 });
 
+Route::get('/login', function () {
+    return redirect('/');
+});
