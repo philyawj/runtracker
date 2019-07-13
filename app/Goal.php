@@ -9,7 +9,7 @@ class Goal extends Model
     //
 
     protected $fillable = [
-        'id', 'user_id', 'miles', 'year', 'weekofyear'
+        'id', 'user_id', 'miles', 'year', 'week_of_year'
     ];
 
     public function user(){

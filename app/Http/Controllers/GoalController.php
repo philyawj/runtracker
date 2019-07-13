@@ -59,17 +59,17 @@ class GoalController extends Controller
     {
         // only return goals from logged in user
         // default index page shows the current year
-        $goals = Goal::select('weekofyear', 'miles')->where('user_id', $this->user_id)->where('year', $this->current_year)->get();
+        $goals = Goal::select('week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $this->current_year)->get();
 
         foreach($this->weeks as $week) {
             $o = new \stdClass();
 
             $find_miles = $goals->filter(function($item) use ($week) {
-                return $item->weekofyear == $week;
+                return $item->week_of_year == $week;
             })->first();
 
             if($find_miles === null) {
-                $o->weekofyear = $week;
+                $o->week_of_year = $week;
                 $o->miles = 'not set';
                 $start_date = Carbon::now();
                 $start_date->setISODate($this->current_year,$week);
@@ -100,11 +100,11 @@ class GoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($year, $weekofyear)
+    public function create($year, $week_of_year)
     {
         $goal = new \stdClass();
         $goal->year = $year;
-        $goal->weekofyear = $weekofyear;
+        $goal->week_of_year = $week_of_year;
         
         return view('goals.addgoal', compact('goal'));
     }
@@ -137,17 +137,17 @@ class GoalController extends Controller
         // convert year to string
         $year = (int)$year;
 
-        $goals = Goal::select('weekofyear', 'miles')->where('user_id', $this->user_id)->where('year', $year)->get();
+        $goals = Goal::select('week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $year)->get();
 
         foreach($this->weeks as $week) {
             $o = new \stdClass();
 
             $find_miles = $goals->filter(function($item) use ($week) {
-                return $item->weekofyear == $week;
+                return $item->week_of_year == $week;
             })->first();
 
             if($find_miles === null) {
-                $o->weekofyear = $week;
+                $o->week_of_year = $week;
                 $o->miles = 'not set';
                 $start_date = Carbon::now();
                 $start_date->setISODate($year,$week);
@@ -179,9 +179,9 @@ class GoalController extends Controller
      * @param  \App\Goal  $goal
      * @return \Illuminate\Http\Response
      */
-    public function edit($year, $weekofyear)
+    public function edit($year, $week_of_year)
     {
-        $goal = Goal::where('user_id', $this->user_id)->where('year', $year)->where('weekofyear', $weekofyear)->first();
+        $goal = Goal::where('user_id', $this->user_id)->where('year', $year)->where('week_of_year', $week_of_year)->first();
 
         return view('goals.editgoal', compact('goal'));
     }

@@ -55,7 +55,7 @@ class RunController extends Controller
         $dt = Carbon::parse($input['date']);
         $input['year'] = $dt->year;
         $input['month'] = $dt->month;
-        $input['weekofyear'] = $dt->weekOfYear;
+        $input['week_of_year'] = $dt->weekOfYear;
 
         Run::create($input);
 
@@ -114,7 +114,7 @@ class RunController extends Controller
         $dt = Carbon::parse($input['date']);
         $input['year'] = $dt->year;
         $input['month'] = $dt->month;
-        $input['weekofyear'] = $dt->weekOfYear;
+        $input['week_of_year'] = $dt->weekOfYear;
 
         $run->update($input);
 

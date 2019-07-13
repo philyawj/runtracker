@@ -36,7 +36,7 @@
                                     <td>{{$run->date}}</td>
                                     <td>{{$run->year}}</td>
                                     <td>{{$run->month}}</td>
-                                    <td>{{$run->weekofyear}}</td>
+                                    <td>{{$run->week_of_year}}</td>
                                     <td>{{$run->miles}}</td>
                                     <td>{{date("H:i:s", $run->seconds)}}</td>
                                     <td>{{$run->mph}}</td>

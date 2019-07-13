@@ -18,7 +18,7 @@ class CreateGoalsTable extends Migration
             $table->timestamps();
             $table->integer('user_id')->unsigned()->index();
             $table->integer('year');
-            $table->integer('weekofyear');
+            $table->integer('week_of_year');
             $table->integer('miles');
         });
     }

@@ -19,7 +19,7 @@
 
                         <div class="form-group">
                             <label for="week">Week</label>
-                            <input readonly type="text" name="week" class="form-control" value={{$goal->weekofyear}}>
+                            <input readonly type="text" name="week" class="form-control" value={{$goal->week_of_year}}>
                         </div>
 
                         <div class="form-group">

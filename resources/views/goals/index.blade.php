@@ -45,17 +45,17 @@
                             <tbody>
                             
                                 @foreach($combined_goals as $goal)
-                                    @if($current_week === $goal->weekofyear and $current_year === $year)
+                                    @if($current_week === $goal->week_of_year and $current_year === $year)
                                         <tr class="bg-primary">
                                     @else 
                                         <tr>
                                     @endif
-                                        <th scope="row">{{$goal->startofweek}} - {{$goal->endofweek}} ({{$goal->weekofyear}})</th>
+                                        <th scope="row">{{$goal->startofweek}} - {{$goal->endofweek}} ({{$goal->week_of_year}})</th>
                                         <td>{{$goal->miles}}</td>
                                         @if($goal->miles > 0)
-                                            <td><a class="btn btn-warning btn-sm" href="{{route('goals.edit', [$year,$goal->weekofyear])}}">Edit</a></td>
+                                            <td><a class="btn btn-warning btn-sm" href="{{route('goals.edit', [$year,$goal->week_of_year])}}">Edit</a></td>
                                         @else 
-                                            <td><a class="btn btn-success btn-sm" href="{{route('goals.create', [$year,$goal->weekofyear])}}">Add</a></td>
+                                            <td><a class="btn btn-success btn-sm" href="{{route('goals.create', [$year,$goal->week_of_year])}}">Add</a></td>
                                         @endif
                                     </tr>
                                 @endforeach                           
@@ -72,7 +72,7 @@
                                     <th scope="col">id</th>
                                     <th scope="col">user_id</th>
                                     <th scope="col">year</th>
-                                    <th scope="col">weekofyear</th>
+                                    <th scope="col">week_of_year</th>
                                     <th scope="col">miles</th>
                                 </tr>
                             </thead>

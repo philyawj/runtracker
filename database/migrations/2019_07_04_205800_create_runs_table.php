@@ -20,7 +20,7 @@ class CreateRunsTable extends Migration
             $table->date('date');
             $table->integer('year');
             $table->integer('month');
-            $table->integer('weekofyear');
+            $table->integer('week_of_year');
             $table->decimal('miles', 5, 2);
             $table->integer('seconds');
             $table->decimal('mph', 5, 2);
