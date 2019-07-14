@@ -23,7 +23,7 @@
 
                         <div class="form-group">
                             <label for="hours">Hours</label>
-                            <input type="tel" name="hours" class="form-control" value={{old('hours')}}>
+                            <input type="tel" name="hours" class="form-control" maxlength="2" value={{old('hours')}}>
                         </div>
 
                         <div class="form-group">

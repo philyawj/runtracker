@@ -6,6 +6,8 @@ throughout app send user back to page they were previously on
 
 need to add validation to edit/add goals - must only input number
 
+apply same form logic to both add goal and edit goal
+
 
 ADD/EDIT RUN:
 date picker --> and add validation to add specific format, maybe with regex
