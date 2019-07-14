@@ -22,7 +22,12 @@
     <script type="text/javascript">
 
     $(function () {
-        $('#addrun, #editrun').datepicker();
+        $('#addrun, #editrun').datepicker({
+            weekStart: 1,
+            todayHighlight: true,
+            endDate: '+0d',
+            startDate: '-365d'
+        });
 
         $("#addrun, #editrun").attr( 'readOnly' , 'true' );
     });

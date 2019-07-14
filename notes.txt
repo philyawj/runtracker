@@ -27,3 +27,5 @@ create admin panel to see every user. last login date. active users this week/mo
 add pagination to history so it only shows 15 at a time.
 
 fix this error by getting rid of vue: Vue warn]: Cannot find element: #app
+delete @import url("https://fonts.googleapis.com/css?family=Nunito"); in app.scss to prevent @charset "UTF-8"; error
+will need to adjust datepicker css to work on small phones
