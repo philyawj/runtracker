@@ -175,9 +175,16 @@ class GoalController extends Controller
      */
     public function edit($year, $week_of_year)
     {
+        $goal_does_not_exist = Goal::where('user_id', $this->user_id)->where('year', $year)->where('week_of_year', $week_of_year)->get();
+
         $goal = Goal::where('user_id', $this->user_id)->where('year', $year)->where('week_of_year', $week_of_year)->first();
 
-        return view('goals.editgoal', compact('goal'));
+        if(count($goal_does_not_exist) > 0) {
+            return view('goals.editgoal', compact('goal'));
+        } else {
+            Session::flash('message', 'No goal to edit that week.');  
+            return redirect('dashboard/goals');
+        }
     }
 
     /**
