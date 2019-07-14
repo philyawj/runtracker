@@ -29,7 +29,13 @@ class RunController extends Controller
 
     public function process_run($request)
     {
+
         $this->input = $request->all();
+
+        $originalDate = $this->input['date'];
+        $newDate = date("Y-m-d", strtotime($originalDate));
+
+        $this->input['date'] = $newDate;
 
         $convertedSeconds = ($this->input['hours'] * 3600) + ($this->input['minutes'] * 60) + $this->input['seconds'];
         $this->input['seconds'] = $convertedSeconds;

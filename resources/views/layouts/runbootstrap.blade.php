@@ -22,9 +22,15 @@
     <script type="text/javascript">
 
     $(function () {
-        $('#addrun, #editrun').datepicker({
+        $('#addrun').datepicker({
             weekStart: 1,
             todayHighlight: true,
+            endDate: '+0d',
+            startDate: '-365d'
+        });
+
+        $('#editrun').datepicker({
+            weekStart: 1,
             endDate: '+0d',
             startDate: '-365d'
         });
