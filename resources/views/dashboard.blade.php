@@ -40,7 +40,7 @@
                             @foreach($lastthreeruns as $lastthreerun)
 
                                 <tr>
-                                    <td scope="row">{{$lastthreerun->date}}</td>
+                                    <td scope="row">{{date("m/d/Y", strtotime($lastthreerun->date))}}</td>
                                     <td>{{$lastthreerun->miles}}</td>
                                     <td>{{date("H:i:s", $lastthreerun->seconds)}}</td>
                                     <td>{{$lastthreerun->mph}}</td>

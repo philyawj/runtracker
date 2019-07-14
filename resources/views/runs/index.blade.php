@@ -33,7 +33,7 @@
                                 <tr>
                                     <th scope="row">{{$run->id}}</th>
                                     <td>{{$run->user_id}}</td>
-                                    <td>{{$run->date}}</td>
+                                    <td>{{date("m/d/Y", strtotime($run->date))}}</td>
                                     <td>{{$run->year}}</td>
                                     <td>{{$run->month}}</td>
                                     <td>{{$run->week_of_year}}</td>
