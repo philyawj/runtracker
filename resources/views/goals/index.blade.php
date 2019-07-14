@@ -34,6 +34,9 @@
                
 
                 <h2>Goals in the year {{$year}}.</h2>
+                @if(Session::has('message'))
+                    <p class="alert alert-warning">{{ Session::get('message') }}</p>
+                @endif
                     <table class="table table-sm">
                             <thead>
                                 <tr>

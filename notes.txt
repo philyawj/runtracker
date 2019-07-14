@@ -2,13 +2,12 @@ stats page to select this week / last week / this month / last month / this year
 distance travelled, total time, average mph
 achievements like # of 5ks, 10ks, half marathons, 15ks, full marathons. 
 
-change how dates are displayed on front end Day/Month/Year throughout
-
 throughout app send user back to page they were previously on
 
 need to add validation to edit/add goals - must only input number
-on goal create page - check if goal already exists under that page. If yes, go back to goals page and flash a message.
-don't allow edit of url. if not legit reroute to dashboard with error
+
+edit goals, if doesn't exist, redirect with error.
+
 
 ADD/EDIT RUN:
 date picker --> and add validation to add specific format, maybe with regex
@@ -19,10 +18,6 @@ don't allow a date in the future
 run has to be less than 24 hours on creating and edit
 distance less than 3 digits
 
-create two different layouts for daily create run to include the datepicker
-possibly use the bootstrap datepicker for better styling
-
-create admin panel to see every user. last login date. active users this week/month. last 10 runs across all users.
 
 add pagination to history so it only shows 15 at a time.
 
@@ -31,3 +26,5 @@ delete @import url("https://fonts.googleapis.com/css?family=Nunito"); in app.scs
 will need to adjust datepicker css to work on small phones
 
 make application los angeles time by default. allow users to change it? 
+
+create admin panel to see every user. last login date. active users this week/month. last 10 runs across all users.

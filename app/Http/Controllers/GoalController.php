@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Carbon\Carbon;
+use Session;
 
 class GoalController extends Controller
 {
@@ -109,11 +110,18 @@ class GoalController extends Controller
      */
     public function create($year, $week_of_year)
     {
+        $goal_already_exists = Goal::where('user_id', $this->user_id)->where('year', $year)->where('week_of_year', $week_of_year)->get();
+
         $goal = new \stdClass();
         $goal->year = $year;
         $goal->week_of_year = $week_of_year;
-        
-        return view('goals.addgoal', compact('goal'));
+
+        if(count($goal_already_exists) > 0) {
+            Session::flash('message', 'A goal already exists that week.');  
+            return redirect('dashboard/goals');
+        } else {
+            return view('goals.addgoal', compact('goal'));
+        }
     }
 
     /**
