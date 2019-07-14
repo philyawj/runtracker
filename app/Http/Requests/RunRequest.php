@@ -24,8 +24,21 @@ class RunRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'required',
+            'date' => 'required|date_format:"m/d/Y"',
             'miles' => 'required'
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'date.required' => 'A date is required.',
+            'date.date_format'  => 'The date must be formated like 07/04/2019.',
         ];
     }
 }
