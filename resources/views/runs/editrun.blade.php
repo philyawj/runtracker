@@ -24,17 +24,17 @@
 
                         <div class="form-group">
                             <label for="hours">Hours</label>
-                            <input type="number" name="hours" class="form-control" maxlength="2" value={{old('hours', $run->hours)}}>
+                            <input type="tel" name="hours" class="form-control" maxlength="2" value={{old('hours', $run->hours)}}>
                         </div>
 
                         <div class="form-group">
                             <label for="minutes">Minutes</label>
-                            <input type="number" name="minutes" class="form-control" maxlength="2" value={{old('minutes', $run->minutes)}}>
+                            <input type="tel" name="minutes" class="form-control" maxlength="2" value={{old('minutes', $run->minutes)}}>
                         </div>
 
                         <div class="form-group">
                             <label for="seconds">Seconds</label>
-                            <input type="number" name="seconds" class="form-control" maxlength="2" value={{old('seconds', $run->seconds)}}>
+                            <input type="tel" name="seconds" class="form-control" maxlength="2" value={{old('seconds', $run->seconds)}}>
                         </div>
 
                         <div class="form-group">

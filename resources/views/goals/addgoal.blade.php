@@ -24,7 +24,7 @@
 
                         <div class="form-group">
                             <label for="miles">Miles</label>
-                            <input type="text" name="miles" class="form-control" value={{old('miles')}}>
+                            <input type="number" name="miles" class="form-control" maxlength="2">
                         </div>
 
                         <div class="form-group">

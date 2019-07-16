@@ -1,10 +1,8 @@
+do validation on goals add/edit
+
 stats page to select this week / last week / this month / last month / this year / last year / all time 
 distance travelled, total time, average mph
 achievements like # of 5ks, 10ks, half marathons, 15ks, full marathons. 
-
-throughout app send user back to page they were previously on
-
-do validation on goals add/edit
 
 add pagination to history so it only shows 15 at a time.
 
@@ -12,6 +10,6 @@ fix this error by getting rid of vue: Vue warn]: Cannot find element: #app
 delete @import url("https://fonts.googleapis.com/css?family=Nunito"); in app.scss to prevent @charset "UTF-8"; error
 will need to adjust datepicker css to work on small phones
 
-make application los angeles time by default. allow users to change it? 
+make application los angeles time by default. allow users to change it? - probably a numeric timezone column for -1 0 1 + UTC
 
 create admin panel to see every user. last login date. active users this week/month. last 10 runs across all users.

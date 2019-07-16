@@ -134,7 +134,11 @@ class GoalController extends Controller
     {
         $input = $request->all();
         $input['user_id'] = Auth::user()->id;
-        // dd($input);
+
+        $validatedData = $request->validate([
+            'miles' => 'required|numeric'
+        ]);
+
         Goal::create($input);
 
         return redirect('/dashboard/goals');
