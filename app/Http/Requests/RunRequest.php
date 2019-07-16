@@ -24,7 +24,7 @@ class RunRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'required|date_format:"m/d/Y"|after:-365 day',
+            'date' => 'required|date_format:"m/d/Y"|after:-365 day|before:tomorrow',
             'miles' => 'required|numeric|max:150',
             'hours' => 'sometimes|nullable|numeric|max:23',
             'minutes' => 'sometimes|nullable|numeric',
@@ -50,7 +50,8 @@ class RunRequest extends FormRequest
         return [
             'date.required' => 'A date is required.',
             'date.date_format'  => 'The date must be formated like 07/04/2019.',
-            'date.after' => 'The date must be less than one year ago.',
+            'date.after' => 'The run date must be less than one year ago.',
+            'date.before' => 'The run date must be before tomorrow.',
             'hours.max' => 'Run hours must be 23 or less.',
             'hours.numeric' => 'Hours must be a number.',
             'minutes.numeric' => 'Minutes must be a number.',

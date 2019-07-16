@@ -8,12 +8,9 @@ need to add validation to edit/add goals - must only input number
 
 apply same form logic to both add goal and edit goal
 
-
 ADD/EDIT RUN:
 input validtion for all types --> make seconds be at least 1, with regex
-don't allow a date in the future - date before: +1
 edit run date needs to show correct format
-
 
 add pagination to history so it only shows 15 at a time.
 
