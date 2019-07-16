@@ -112,6 +112,9 @@ class RunController extends Controller
         $run['minutes'] = date("i", $run->seconds);
         $run['seconds'] = date("s", $run->seconds);
 
+        // format date on load
+        $run['date'] = date("m/d/Y",strtotime($run['date']));
+
         return view('runs.editrun', compact('run'));
     }
 
