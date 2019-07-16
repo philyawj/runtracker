@@ -53,7 +53,7 @@ class RunController extends Controller
     public function index()
     {
         // only return runs from logged in user
-        $runs = Run::all()->where('user_id', $this->user_id);
+        $runs = Run::where('user_id', $this->user_id)->paginate(10);
 
         return view('runs.index', compact('runs'));
     }
