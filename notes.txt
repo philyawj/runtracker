@@ -9,7 +9,6 @@ apply same form logic to both add goal and edit goal
 ADD/EDIT RUN:
 input validtion for all types --> make seconds be at least 1, with regex
 
-edit run date needs to show correct format
 AND edit run needs to show the old values on submit
 
 add pagination to history so it only shows 15 at a time.

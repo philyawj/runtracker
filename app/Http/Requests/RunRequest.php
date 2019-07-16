@@ -35,9 +35,11 @@ class RunRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-        $this->merge([
-            'converted_seconds' => ($this->get('hours') * 3600) + ($this->get('minutes') * 60) + $this->get('seconds')
-        ]);
+        if(is_numeric($this->get('hours')) and is_numeric($this->get('minutes')) and is_numeric($this->get('seconds'))) {
+            $this->merge([
+                'converted_seconds' => ($this->get('hours') * 3600) + ($this->get('minutes') * 60) + $this->get('seconds')
+            ]);
+        }
     }
 
     /**
