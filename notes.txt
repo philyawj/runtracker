@@ -11,7 +11,6 @@ apply same form logic to both add goal and edit goal
 
 ADD/EDIT RUN:
 input validtion for all types --> make seconds be at least 1, with regex
-validate to catch when mph breaks with a near divide by zero. maybe a run must be at least 5 minutes long.
 don't allow a date in the future - date before: +1
 edit run date needs to show correct format
 
