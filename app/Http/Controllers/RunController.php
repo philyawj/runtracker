@@ -37,12 +37,12 @@ class RunController extends Controller
 
         $this->input['date'] = $newDate;
 
-        $convertedSeconds = ($this->input['hours'] * 3600) + ($this->input['minutes'] * 60) + $this->input['seconds'];
-        $this->input['seconds'] = $convertedSeconds;
+        $converted_seconds = ($this->input['hours'] * 3600) + ($this->input['minutes'] * 60) + $this->input['seconds'];
+        $this->input['seconds'] = $converted_seconds;
 
         $this->input['user_id'] = $this->user_id;
 
-        $this->input['mph'] = $this->input['miles'] / ($convertedSeconds / 3600);
+        $this->input['mph'] = $this->input['miles'] / ($converted_seconds / 3600);
 
         $dt = Carbon::parse($this->input['date']);
         $this->input['year'] = $dt->year;
@@ -79,6 +79,9 @@ class RunController extends Controller
     {
         //
         $this->process_run($request);
+
+        // dd($request);
+        // dd($this->input);
 
         Run::create($this->input);
 

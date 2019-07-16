@@ -10,13 +10,9 @@ apply same form logic to both add goal and edit goal
 
 
 ADD/EDIT RUN:
-date picker --> and add validation to add specific format, maybe with regex
 input validtion for all types --> make seconds be at least 1, with regex
 validate to catch when mph breaks with a near divide by zero. maybe a run must be at least 5 minutes long.
-when mph calc is over 20 shoot an error. 
-don't allow a date in the future
-run has to be less than 24 hours on creating and edit
-distance less than 3 digits
+don't allow a date in the future - date before: +1
 edit run date needs to show correct format
 
 
@@ -29,3 +25,5 @@ will need to adjust datepicker css to work on small phones
 make application los angeles time by default. allow users to change it? 
 
 create admin panel to see every user. last login date. active users this week/month. last 10 runs across all users.
+
+make sure forms can't be submitted multiple times to cause issues

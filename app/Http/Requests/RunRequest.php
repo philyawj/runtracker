@@ -28,8 +28,16 @@ class RunRequest extends FormRequest
             'miles' => 'required|numeric|max:150',
             'hours' => 'sometimes|nullable|numeric|max:23',
             'minutes' => 'sometimes|nullable|numeric',
-            'seconds' => 'sometimes|nullable|numeric'
+            'seconds' => 'sometimes|nullable|numeric',
+            'converted_seconds' => 'numeric|min:600'
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'converted_seconds' => ($this->get('hours') * 3600) + ($this->get('minutes') * 60) + $this->get('seconds')
+        ]);
     }
 
     /**
@@ -46,7 +54,8 @@ class RunRequest extends FormRequest
             'hours.max' => 'Run hours must be 23 or less.',
             'hours.numeric' => 'Hours must be a number.',
             'minutes.numeric' => 'Minutes must be a number.',
-            'seconds.numeric' => 'Seconds must be a number.'
+            'seconds.numeric' => 'Seconds must be a number.',
+            'converted_seconds.min' => 'Run must be at least 10 minutes long.'
         ];
     }
 }
