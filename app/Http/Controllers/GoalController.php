@@ -202,6 +202,10 @@ class GoalController extends Controller
     {
         $input = $request->all();
 
+        $validatedData = $request->validate([
+            'miles' => 'required|numeric'
+        ]);
+
         $goal->update($input);
 
         return redirect('/dashboard/goals');

@@ -24,7 +24,7 @@
 
                         <div class="form-group">
                             <label for="miles">Miles</label>
-                            <input type="number" name="miles" class="form-control" maxlength="2">
+                            <input type="tel" name="miles" class="form-control" maxlength="3">
                         </div>
 
                         <div class="form-group">

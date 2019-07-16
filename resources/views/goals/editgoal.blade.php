@@ -24,7 +24,7 @@
 
                         <div class="form-group">
                             <label for="miles">Miles</label>
-                            <input type="text" name="miles" class="form-control" value={{$goal->miles}}>
+                            <input type="tel" maxlength="3" name="miles" class="form-control" value={{$goal->miles}}>
                         </div>
                        
 

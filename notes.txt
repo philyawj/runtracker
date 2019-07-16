@@ -1,5 +1,3 @@
-do validation on goals add/edit
-
 stats page to select this week / last week / this month / last month / this year / last year / all time 
 distance travelled, total time, average mph
 achievements like # of 5ks, 10ks, half marathons, 15ks, full marathons. 
