@@ -26,13 +26,15 @@
             weekStart: 1,
             todayHighlight: true,
             endDate: '+0d',
-            startDate: '-365d'
+            startDate: '-365d',
+            autoclose: true
         });
 
         $('#editrun').datepicker({
             weekStart: 1,
             endDate: '+0d',
-            startDate: '-365d'
+            startDate: '-365d',
+            autoclose: true
         });
 
         $("#addrun, #editrun").attr( 'readOnly' , 'true' );

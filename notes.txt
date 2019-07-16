@@ -17,6 +17,7 @@ when mph calc is over 20 shoot an error.
 don't allow a date in the future
 run has to be less than 24 hours on creating and edit
 distance less than 3 digits
+edit run date needs to show correct format
 
 
 add pagination to history so it only shows 15 at a time.
