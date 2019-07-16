@@ -14,32 +14,32 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input id="editrun" type="text" name="date" class="form-control" value={{$run->date}}>
+                            <input id="editrun" type="text" name="date" class="form-control" value={{old('date', $run->date)}}>
                         </div>
                        
                         <div class="form-group">
                             <label for="miles">Miles</label>
-                            <input type="text" name="miles" class="form-control" value={{$run->miles}}>
+                            <input type="text" name="miles" class="form-control" value={{old('miles', $run->miles)}}>
                         </div>
 
                         <div class="form-group">
                             <label for="hours">Hours</label>
-                            <input type="tel" name="hours" class="form-control" maxlength="2" value={{$run->hours}}>
+                            <input type="tel" name="hours" class="form-control" maxlength="2" value={{old('hours', $run->hours)}}>
                         </div>
 
                         <div class="form-group">
                             <label for="minutes">Minutes</label>
-                            <input type="tel" name="minutes" class="form-control" maxlength="2" value={{$run->minutes}}>
+                            <input type="tel" name="minutes" class="form-control" maxlength="2" value={{old('minutes', $run->minutes)}}>
                         </div>
 
                         <div class="form-group">
                             <label for="seconds">Seconds</label>
-                            <input type="tel" name="seconds" class="form-control" maxlength="2" value={{$run->seconds}}>
+                            <input type="tel" name="seconds" class="form-control" maxlength="2" value={{old('seconds', $run->seconds)}}>
                         </div>
 
                         <div class="form-group">
                             <label for="notes">Notes</label>
-                            <input type="text" name="notes" class="form-control" value="{{$run->notes}}">
+                            <input type="text" name="notes" class="form-control" value="{{old('notes', $run->notes)}}">
                         </div>
 
                         <div class="form-group">

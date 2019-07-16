@@ -4,12 +4,7 @@ achievements like # of 5ks, 10ks, half marathons, 15ks, full marathons.
 
 throughout app send user back to page they were previously on
 
-apply same form logic to both add goal and edit goal
-
-ADD/EDIT RUN:
-input validtion for all types --> make seconds be at least 1, with regex
-
-AND edit run needs to show the old values on submit
+something is wrong with minimum 10 minute validation depending if hours if filled or not. 
 
 add pagination to history so it only shows 15 at a time.
 
