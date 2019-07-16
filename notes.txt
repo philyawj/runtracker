@@ -4,7 +4,7 @@ achievements like # of 5ks, 10ks, half marathons, 15ks, full marathons.
 
 throughout app send user back to page they were previously on
 
-something is wrong with minimum 10 minute validation depending if hours if filled or not. 
+do validation on goals add/edit
 
 add pagination to history so it only shows 15 at a time.
 

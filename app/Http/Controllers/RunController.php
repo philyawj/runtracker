@@ -80,6 +80,8 @@ class RunController extends Controller
         //
         $this->process_run($request);
 
+        // dd($this->input);
+
         Run::create($this->input);
 
         return redirect('/dashboard/runs');

@@ -10644,6 +10644,12 @@ a.text-dark:focus {
   }
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .datepicker {
   border-radius: 0;
   padding: 25px;
