@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Goal;
+use App\Run;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
@@ -58,12 +59,24 @@ class GoalController extends Controller
     }
 
     public function init_weekly_goals($which_year, $goals) {
+
+        $miles_per_week = Run::select('year', 'week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $which_year)->get();
+        // dd($miles_per_week);
+
+        $grouped_miles = $miles_per_week->groupBy('week_of_year')->map(function ($row){
+            return $row->sum('miles');
+        });
+
+        dd($grouped_miles);
+
         foreach($this->weeks as $week) {
             $o = new \stdClass();
 
             $find_miles = $goals->filter(function($item) use ($week) {
                 return $item->week_of_year == $week;
             })->first();
+
+            // dd($find_miles);
 
             if($find_miles === null) {
                 $o->week_of_year = $week;
@@ -75,6 +88,7 @@ class GoalController extends Controller
                 $end_date->setISODate($which_year,$week);
                 $o->endofweek = $end_date->endOfWeek()->format('n/j');
                 $this->combined_goals->push($o);
+                // dd($o);
             } else {
                 $start_date = Carbon::now();
                 $start_date->setISODate($which_year,$week);
@@ -83,6 +97,7 @@ class GoalController extends Controller
                 $end_date->setISODate($which_year,$week);
                 $find_miles->endofweek = $end_date->endOfWeek()->format('n/j');
                 $this->combined_goals->push($find_miles);
+                // dd($find_miles);
             }
         }
     }
@@ -99,6 +114,8 @@ class GoalController extends Controller
         $this->init_weekly_goals($this->current_year, $this->weekly_goals);
 
         $this->init_dropdowns();
+
+        // dd($this->combined_goals);
         
         return view('goals.index', ['combined_goals' => $this->combined_goals, 'year' => $this->current_year, 'weeks' => $this->weeks, 'current_week' => $this->current_week, 'current_year' => $this->current_year, 'goal_year_array' => $this->goal_year_array]);
     }

@@ -1,6 +1,11 @@
-stats page to select this week / last week / this month / last month / this year / last year / all time 
+stats page to select this week / last week / this month / last month / this year / last year / all time / # weekly goals reached
 distance travelled, total time, average mph
 achievements like # of 5ks, 10ks, half marathons, 15ks, full marathons. 
+
+clean up run history
+
+add progress bars to goals page each week.
+actually want to show that somewhere else.
 
 fix this error by getting rid of vue: Vue warn]: Cannot find element: #app
 delete @import url("https://fonts.googleapis.com/css?family=Nunito"); in app.scss to prevent @charset "UTF-8"; error
