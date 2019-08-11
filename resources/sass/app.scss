@@ -7,6 +7,8 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+// DARK
+
 body {
     background-color: #242527;
     color: #fff;
@@ -18,6 +20,15 @@ body {
 
 .table {
     color: #fff;
+}
+
+.card {
+    border-radius: 8px;
+}
+
+.progress {
+    background-color: #808080;
+    height: 8px;
 }
 
 // get rid of type number arrows

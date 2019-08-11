@@ -10657,6 +10657,15 @@ body {
   color: #fff;
 }
 
+.card {
+  border-radius: 8px;
+}
+
+.progress {
+  background-color: #808080;
+  height: 8px;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
