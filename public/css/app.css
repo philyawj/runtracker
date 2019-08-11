@@ -10644,6 +10644,19 @@ a.text-dark:focus {
   }
 }
 
+body {
+  background-color: #242527;
+  color: #fff;
+}
+
+.card {
+  background-color: #4d4d4d;
+}
+
+.table {
+  color: #fff;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
