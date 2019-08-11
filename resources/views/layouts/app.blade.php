@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand shadow-sm">
+        <nav class="navbar navbar-expand">
             <div class="container">
             
                 <ul class="navbar-nav ml-auto nav-fill w-100">
@@ -63,7 +63,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-3">
             @yield('content')
         </main>
     </div>
