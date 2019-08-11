@@ -21,9 +21,11 @@
                     @endif
                     
                     
-                    <p>Miles last week: {{$mileslastweek}}</p>
+                  
                     <p>Miles this month: {{$milesthismonth}}</p>
-                    <p>Miles last month: {{$mileslastmonth}}</p>
+                    <p>Miles this year: {{$miles_this_year}}</p>
+                    <p>Miles all time: {{$miles_all_time}}</p>
+                    
 
                     <h5>Last 3 Runs</h5>
                     <table class="table">

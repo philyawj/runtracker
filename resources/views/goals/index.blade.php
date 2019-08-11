@@ -84,26 +84,6 @@
                             </tbody>
                     </table>
                 
-
-                <hr>
-
-                <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">user_id</th>
-                                    <th scope="col">year</th>
-                                    <th scope="col">week_of_year</th>
-                                    <th scope="col">miles</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            
-                           
-
-                            </tbody>
-                    </table>
-
                     
                 </div>
             </div>
