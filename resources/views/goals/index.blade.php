@@ -51,7 +51,7 @@
                             
                                 @foreach($combined_goals as $goal)
                                     @if($current_week === $goal->week_of_year and $current_year === $year)
-                                        <tr class="bg-primary">
+                                        <tr class="bg-secondary">
                                     @else 
                                         <tr>
                                     @endif
