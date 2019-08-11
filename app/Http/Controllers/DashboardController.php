@@ -36,7 +36,7 @@ class DashboardController extends Controller
         $groupedmiles = $milesperweek->groupBy('week_of_year')->map(function ($row){
             return $row->sum('miles');
         });
-        echo $groupedmiles;
+        // echo $groupedmiles;
 
         $lastthreeruns = Run::all()->where('user_id', $user_id)->sortByDesc('date')->take(3);
 

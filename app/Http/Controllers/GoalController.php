@@ -118,6 +118,7 @@ class GoalController extends Controller
                     $o->miles_done = 0;
                 }
                 
+                
                 $this->combined_goals->push($o);
                 // dd($o);
             } else {
@@ -154,8 +155,6 @@ class GoalController extends Controller
         $this->init_weekly_goals($this->current_year, $this->weekly_goals);
 
         $this->init_dropdowns();
-
-        // dd($this->combined_goals);
         
         return view('goals.index', ['combined_goals' => $this->combined_goals, 'year' => $this->current_year, 'weeks' => $this->weeks, 'current_week' => $this->current_week, 'current_year' => $this->current_year, 'goal_year_array' => $this->goal_year_array]);
     }

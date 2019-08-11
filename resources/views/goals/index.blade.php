@@ -43,6 +43,7 @@
                                     <th scope="col">week</th>
                                     <th scope="col">goal miles</th>
                                     <th scope="col">miles done</th>
+                                    <th scope="col">progress</th>
                                     <th scope="col">add/edit</th>
                                 </tr>
                             </thead>
@@ -57,6 +58,21 @@
                                         <th scope="row">{{$goal->startofweek}} - {{$goal->endofweek}} ({{$goal->week_of_year}})</th>
                                         <td>{{$goal->miles}}</td>
                                         <td>{{$goal->miles_done}}</td>
+                                        
+                                        
+                                        <td>
+                                            @if($goal->miles > 0)
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: {{($goal->miles_done/$goal->miles)*100}}%" aria-valuenow="{{$goal->miles_done/$goal->miles}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            @else 
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: {{0}}%" aria-valuenow="{{0}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            @endif
+                                        </td>
+                                       
+
                                         @if($goal->miles > 0)
                                             <td><a class="btn btn-warning btn-sm" href="{{route('goals.edit', [$year,$goal->week_of_year])}}">Edit</a></td>
                                         @else 
