@@ -60,6 +60,7 @@ class GoalController extends Controller
 
     public function init_weekly_goals($which_year, $goals) {
 
+        // dd($goals);
         $miles_per_week = Run::select('year', 'week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $which_year)->get();
         // dd($miles_per_week);
 
@@ -67,7 +68,14 @@ class GoalController extends Controller
             return $row->sum('miles');
         });
 
-        dd($grouped_miles);
+        // dd($grouped_miles);
+        // dd($goals);
+
+        // $miles_done_by_week;
+        // foreach($grouped_miles as $miles_done) {
+            
+        // }
+        // dd($miles_done_by_week);
 
         foreach($this->weeks as $week) {
             $o = new \stdClass();
@@ -77,6 +85,21 @@ class GoalController extends Controller
             })->first();
 
             // dd($find_miles);
+            // dd($grouped_miles);
+            // $find_miles_done = $grouped_miles->filter(function($item) use ($week){
+            //     dd($item);
+            //     return $item;
+                
+            // });
+            // dd($find_miles);
+            
+            // if(isset($grouped_miles[$week])) {
+            //     // dd($grouped_miles[$week]);
+            //     $o->miles_done = $grouped_miles[$week];
+            // } else {
+            //     // $grouped_miles[$week] = 0; 
+            //     $o->miles_done = 0;
+            // }
 
             if($find_miles === null) {
                 $o->week_of_year = $week;
@@ -87,6 +110,14 @@ class GoalController extends Controller
                 $end_date = Carbon::now();
                 $end_date->setISODate($which_year,$week);
                 $o->endofweek = $end_date->endOfWeek()->format('n/j');
+                if(isset($grouped_miles[$week])) {
+                    // dd($grouped_miles[$week]);
+                    $o->miles_done = $grouped_miles[$week];
+                } else {
+                    // $grouped_miles[$week] = 0; 
+                    $o->miles_done = 0;
+                }
+                
                 $this->combined_goals->push($o);
                 // dd($o);
             } else {
@@ -96,10 +127,19 @@ class GoalController extends Controller
                 $end_date = Carbon::now();
                 $end_date->setISODate($which_year,$week);
                 $find_miles->endofweek = $end_date->endOfWeek()->format('n/j');
+                if(isset($grouped_miles[$week])) {
+                    // dd($grouped_miles[$week]);
+                    $find_miles->miles_done = $grouped_miles[$week];
+                } else {
+                    // $grouped_miles[$week] = 0; 
+                    $find_miles->miles_done = 0;
+                }
+                
                 $this->combined_goals->push($find_miles);
                 // dd($find_miles);
             }
         }
+        // dd($grouped_miles);
     }
 
     public function select_weekly_goals($arg) {

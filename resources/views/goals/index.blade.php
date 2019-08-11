@@ -41,7 +41,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">week</th>
-                                    <th scope="col">miles</th>
+                                    <th scope="col">goal miles</th>
+                                    <th scope="col">miles done</th>
                                     <th scope="col">add/edit</th>
                                 </tr>
                             </thead>
@@ -55,6 +56,7 @@
                                     @endif
                                         <th scope="row">{{$goal->startofweek}} - {{$goal->endofweek}} ({{$goal->week_of_year}})</th>
                                         <td>{{$goal->miles}}</td>
+                                        <td>{{$goal->miles_done}}</td>
                                         @if($goal->miles > 0)
                                             <td><a class="btn btn-warning btn-sm" href="{{route('goals.edit', [$year,$goal->week_of_year])}}">Edit</a></td>
                                         @else 
