@@ -12,17 +12,11 @@
                     <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">user_id</th>
                                     <th scope="col">date</th>
-                                    <th scope="col">year</th>
-                                    <th scope="col">month</th>
-                                    <th scope="col">week of year</th>
                                     <th scope="col">miles</th>
                                     <th scope="col">time</th>
                                     <th scope="col">mph</th>
                                     <th scope="col">notes</th>
-                                    <th scope="col">Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,17 +25,11 @@
                             @foreach($runs as $run)
 
                                 <tr>
-                                    <th scope="row">{{$run->id}}</th>
-                                    <td>{{$run->user_id}}</td>
-                                    <td>{{date("m/d/Y", strtotime($run->date))}}</td>
-                                    <td>{{$run->year}}</td>
-                                    <td>{{$run->month}}</td>
-                                    <td>{{$run->week_of_year}}</td>
+                                    <td><a href="{{route('runs.edit', $run->id)}}">{{date("m/d/Y", strtotime($run->date))}}</a></td>
                                     <td>{{$run->miles}}</td>
                                     <td>{{date("H:i:s", $run->seconds)}}</td>
                                     <td>{{$run->mph}}</td>
                                     <td>{{$run->notes}}</td>
-                                    <td><a class="btn btn-warning btn-sm" href="{{route('runs.edit', $run->id)}}">Edit</a></td>
                                 </tr>
 
                             @endforeach

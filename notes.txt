@@ -13,3 +13,8 @@ add flash messages between screens
 refactor / clean up variable names everywhere
 
 clean up routing where people go after different actions
+
+
+
+Run Log dashboard
+- get rid of edit button and make the link clickable instead
