@@ -136,6 +136,11 @@ select {
     width: 15%;
 }
 
+.error-text {
+    color: #f07587;
+    margin-top: 0.25rem;
+}
+
 // get rid of type number arrows
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {

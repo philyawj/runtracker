@@ -14,26 +14,44 @@
                         <div class="form-group">
                             <label for="date">Date</label>
                             <input id="addrun" type="text" name="date" class="form-control" value={{old('date')}}>
+                            @error('date')
+                                <div class="error-text">{{ $message }}</div>
+                            @enderror
                         </div>
-                       
+
                         <div class="form-group">
                             <label for="miles">Miles</label>
                             <input type="text" name="miles" class="form-control" value={{old('miles')}}>
+                            @error('miles')
+                                <div class="error-text">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="hours">Hours</label>
                             <input type="tel" name="hours" class="form-control" maxlength="2" value={{old('hours')}}>
+                            @error('converted_seconds')
+                                <div class="error-text">{{ $message }}</div>
+                            @enderror
+                            @error('hours')
+                                <div class="error-text">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="minutes">Minutes</label>
                             <input type="tel" name="minutes" class="form-control" maxlength="2" value={{old('minutes')}}>
+                            @error('minutes')
+                                <div class="error-text">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="seconds">Seconds</label>
                             <input type="tel" name="seconds" class="form-control" maxlength="2" value={{old('seconds')}}>
+                            @error('seconds')
+                                <div class="error-text">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group">
@@ -47,22 +65,6 @@
 
                     </form>
 
-                    @if(count($errors) > 0)
-
-                    <div class="alert alert-danger">
-                        <ul>
-
-                            @foreach($errors->all() as $error)
-
-                                <li>{{$error}}</li>
-
-                            @endforeach
-
-                        </ul>
-                    </div>
-
-                    @endif
-                    
                 </div>
             </div>
         </div>
