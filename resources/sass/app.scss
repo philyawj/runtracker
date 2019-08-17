@@ -11,8 +11,8 @@ $font-size-base: 1rem;
 
 // Colors
 // $blue: #3490dc;
-$blue: #dec3ef;
-// $blue: #d4adea;
+// $blue: #dec3ef;
+$blue: #bc89dc;
 $indigo: #6574cd;
 $purple: #9561e2;
 $pink: #f66d9b;
@@ -145,6 +145,11 @@ $default-info: red;
             }
         }
     }
+}
+
+.dropdown-menu {
+    background-color: #5b5d5f;
+    color: #fff;
 }
 
 .datepicker table tr td span.active:active,
