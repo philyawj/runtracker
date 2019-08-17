@@ -16,8 +16,4 @@ clean up routing where people go after different actions
 
 create 404 page
 
-goal page rework where year can be selected
-- probably put it at the bottom
-- change h1
-
 dashboard include chart with last 6 weeks

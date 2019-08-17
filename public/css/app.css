@@ -11124,6 +11124,10 @@ textarea {
   vertical-align: middle;
 }
 
+select {
+  cursor: pointer;
+}
+
 .fit {
   white-space: nowrap;
   width: 15%;

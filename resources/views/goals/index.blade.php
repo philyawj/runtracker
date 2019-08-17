@@ -59,10 +59,10 @@
                             </tbody>
                     </table>
 
-                    <form method="POST" action="{{route('goals.reroute')}}" autocomplete="off">
+                    <!-- <form method="POST" action="{{route('goals.reroute')}}" autocomplete="off" class="form-group">
                         {{ csrf_field() }}
 
-                        <select name="gotoyear" id="">
+                        <select class="form-control" name="gotoyear" id="">
                             @foreach($goal_year_array as $goalyear)
                             
                                 @if($goalyear === $year)
@@ -78,9 +78,30 @@
                             <input type="submit" class="btn btn-primary btn-sm" value="Go to goal year">
                         </div>
 
+                    </form> -->
+
+                    <form method="POST" action="{{route('goals.reroute')}}" autocomplete="off" class="form-group">
+                        {{ csrf_field() }}
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <select class="form-control" name="gotoyear" id="">
+                                    @foreach($goal_year_array as $goalyear)
+                                    
+                                        @if($goalyear === $year)
+                                            <option selected="selected" value={{$goalyear}}>{{$goalyear}}</option>
+                                        @else
+                                            <option value={{$goalyear}}>{{$goalyear}}</option>
+                                        @endif
+
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <input type="submit" class="btn btn-primary btn-sm" value="Go to goal year">
+                            </div>
+                        </div>
                     </form>
                 
-                    
                 </div>
             </div>
         </div>
