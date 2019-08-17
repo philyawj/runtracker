@@ -10,18 +10,8 @@ $font-family-sans-serif: "Lato", sans-serif;
 $font-size-base: 1rem;
 
 // Colors
-// $blue: #3490dc;
-// $blue: #dec3ef;
 $blue: #bc89dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$primary: #bc89dc;
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
@@ -95,19 +85,37 @@ body {
         padding: 2px;
     }
 
-    .run-notes-col {
+    .table-hide-sm {
         display: none;
     }
 }
 
 // OVERALL CUSTOM
 
+a:hover {
+    color: $primary;
+    text-decoration: none;
+}
 textarea {
     resize: none;
 }
 
 .table > thead > tr > th {
     border-top: none;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.table td,
+.table th {
+    text-align: center;
+}
+
+.fit {
+    white-space: nowrap;
+    width: 21%;
 }
 
 // get rid of type number arrows

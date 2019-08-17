@@ -40,11 +40,10 @@
                     <table class="table table-sm">
                             <thead>
                                 <tr>
-                                    <th scope="col">week</th>
-                                    <th scope="col">goal miles</th>
-                                    <th scope="col">miles done</th>
+                                    <th scope="col fit">week</th>
                                     <th scope="col">progress</th>
-                                    <th scope="col">add/edit</th>
+                                    <th scope="col">goal</th>
+                                    <th scope="col">done</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,11 +54,15 @@
                                     @else 
                                         <tr>
                                     @endif
-                                        <th scope="row">{{$goal->startofweek}} - {{$goal->endofweek}} ({{$goal->week_of_year}})</th>
-                                        <td>{{$goal->miles}}</td>
-                                        <td>{{$goal->miles_done}}</td>
-                                        
-                                        
+
+                                        @if($goal->miles > 0)
+                                            <td scope="row" class="fit"><a href="{{route('goals.edit', [$year,$goal->week_of_year])}}">{{$goal->startofweek}} - {{$goal->endofweek}} ({{$goal->week_of_year}})</a></td>
+                                            
+                                        @else 
+                                            <td scope="row" class="fit"><a href="{{route('goals.create', [$year,$goal->week_of_year])}}">{{$goal->startofweek}} - {{$goal->endofweek}} ({{$goal->week_of_year}})</a></td>
+                                         
+                                        @endif
+
                                         <td>
                                             @if($goal->miles > 0)
                                             <div class="progress">
@@ -72,12 +75,9 @@
                                             @endif
                                         </td>
                                        
+                                        <td>{{$goal->miles}}</td>
+                                        <td>{{$goal->miles_done}}</td>
 
-                                        @if($goal->miles > 0)
-                                            <td><a class="btn btn-warning btn-sm" href="{{route('goals.edit', [$year,$goal->week_of_year])}}">Edit</a></td>
-                                        @else 
-                                            <td><a class="btn btn-success btn-sm" href="{{route('goals.create', [$year,$goal->week_of_year])}}">Add</a></td>
-                                        @endif
                                     </tr>
                                 @endforeach                           
 
