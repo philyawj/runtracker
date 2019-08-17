@@ -16,7 +16,7 @@
                                     <th scope="col">miles</th>
                                     <th scope="col">time</th>
                                     <th scope="col">mph</th>
-                                    <th scope="col">notes</th>
+                                    <th class="run-notes-col" scope="col">notes</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -29,7 +29,7 @@
                                     <td>{{$run->miles}}</td>
                                     <td>{{date("H:i:s", $run->seconds)}}</td>
                                     <td>{{$run->mph}}</td>
-                                    <td>{{$run->notes}}</td>
+                                    <td class="run-notes-col">{{$run->notes}}</td>
                                 </tr>
 
                             @endforeach
