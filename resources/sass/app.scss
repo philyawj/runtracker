@@ -98,6 +98,10 @@ body {
 
 // OVERALL CUSTOM
 
+textarea {
+    resize: none;
+}
+
 .table > thead > tr > th {
     border-top: none;
 }

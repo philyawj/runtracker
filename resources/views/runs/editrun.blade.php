@@ -39,7 +39,7 @@
 
                         <div class="form-group">
                             <label for="notes">Notes</label>
-                            <input type="text" name="notes" class="form-control" value="{{old('notes', $run->notes)}}">
+                            <textarea type="text" name="notes" rows="3" class="form-control" value="{{old('notes', $run->notes)}}"></textarea>
                         </div>
 
                         <div class="form-group">
