@@ -11091,6 +11091,16 @@ body {
   .table-hide-sm {
     display: none;
   }
+
+  li.page-item {
+    display: none;
+  }
+
+  .page-item:first-child,
+  .page-item:last-child,
+  .page-item.active {
+    display: block;
+  }
 }
 
 a:hover {

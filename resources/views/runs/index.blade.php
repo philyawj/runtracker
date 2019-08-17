@@ -37,8 +37,11 @@
                             </tbody>
                     </table>
 
-                    {{ $runs->links() }}
-
+                    <div class="d-flex">
+                        <div class="mx-auto">
+                            {{ $runs->links() }}
+                        </div>
+                    </div>
                     
                 </div>
             </div>
