@@ -11103,6 +11103,10 @@ body {
   }
 }
 
+h2 {
+  margin-bottom: 1rem;
+}
+
 a:hover {
   color: #bc89dc;
   text-decoration: none;

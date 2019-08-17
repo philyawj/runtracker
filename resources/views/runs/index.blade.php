@@ -5,9 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card run-history-card">
-                <div class="card-header">Run History</div>
 
                 <div class="card-body">
+
+                <h2>Run History</h2>
 
                     <table class="table">
                             <thead>

@@ -5,9 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
+
+                    <h2>Dashboard</h2>
+
                     <p>Miles this week: {{$milesthisweek}}</p>
                     @if(is_null($thisweekgoal)) 
                         <p><a class="btn btn-sm btn-primary" href="{{route('goals.create', [$current_year,$current_week])}}">Button to set goal for this week</a></p>

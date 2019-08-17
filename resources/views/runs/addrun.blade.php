@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create Run</div>
-
                 <div class="card-body">
+
+                    <h2>Create Run</h2>
                     
                     <form method="POST" action="{{route('runs.store')}}" autocomplete="off">
                         {{ csrf_field() }}

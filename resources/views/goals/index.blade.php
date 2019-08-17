@@ -5,35 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Goals</div>
 
                 <div class="card-body">
-                
-                <form method="POST" action="{{route('goals.reroute')}}" autocomplete="off">
-                        {{ csrf_field() }}
-
-                        <select name="gotoyear" id="">
-                            @foreach($goal_year_array as $goalyear)
-                            
-                                @if($goalyear === $year)
-                                    <option selected="selected" value={{$goalyear}}>{{$goalyear}}</option>
-                                @else
-                                    <option value={{$goalyear}}>{{$goalyear}}</option>
-                                @endif
-
-                            @endforeach
-                        </select>
-                        
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-sm" value="Go to goal year">
-                        </div>
-
-                    </form>
-                
-
-               
-
-                <h2>Goals in the year {{$year}}.</h2>
+            
+                <h2>{{$year}} Goals</h2>
                 @if(Session::has('message'))
                     <p class="alert alert-warning">{{ Session::get('message') }}</p>
                 @endif
@@ -83,6 +58,27 @@
 
                             </tbody>
                     </table>
+
+                    <form method="POST" action="{{route('goals.reroute')}}" autocomplete="off">
+                        {{ csrf_field() }}
+
+                        <select name="gotoyear" id="">
+                            @foreach($goal_year_array as $goalyear)
+                            
+                                @if($goalyear === $year)
+                                    <option selected="selected" value={{$goalyear}}>{{$goalyear}}</option>
+                                @else
+                                    <option value={{$goalyear}}>{{$goalyear}}</option>
+                                @endif
+
+                            @endforeach
+                        </select>
+                        
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Go to goal year">
+                        </div>
+
+                    </form>
                 
                     
                 </div>

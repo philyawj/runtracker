@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit Run</div>
-
                 <div class="card-body">
+
+                    <h2>Edit Run</h2>
                     
                     <form method="POST" action="{{route('runs.update', $run->id)}}" autocomplete="off">
                     <input type="hidden" name="_method" value="PATCH">
