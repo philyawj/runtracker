@@ -1,15 +1,18 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
+// @import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
 @import "normalize";
 
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
+// $font-family-sans-serif: "Nunito", sans-serif;
+$font-family-sans-serif: "Lato", sans-serif;
 $font-size-base: 1rem;
-// $line-height-base: 1.6;
 
 // Colors
-$blue: #3490dc;
+// $blue: #3490dc;
+$blue: #dec3ef;
+// $blue: #d4adea;
 $indigo: #6574cd;
 $purple: #9561e2;
 $pink: #f66d9b;
@@ -22,11 +25,18 @@ $cyan: #6cb2eb;
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
 
 // DARK
 
 body {
     background-color: #242527;
+    color: #fff;
+}
+
+.btn-primary {
     color: #fff;
 }
 
@@ -44,8 +54,52 @@ body {
 
 .progress {
     background-color: #808080;
-    // background-color: #4e5253;
     height: 8px;
+}
+
+.form-control,
+.form-control:focus,
+.form-control[readonly] {
+    background-color: #3c3b3b;
+    color: #fff;
+    border: 1px solid #4a4a4a;
+}
+
+.form-control[readonly] {
+    cursor: pointer;
+}
+
+.page-link {
+    background-color: #4d4d4d;
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    color: #fff;
+    background-color: #3f3f3f;
+}
+
+// ADJUST FOR SMALL SCREENS
+
+@include media-breakpoint-down(sm) {
+    * {
+        font-size: 14px;
+    }
+
+    .card-body,
+    .card-header {
+        padding: 10px;
+    }
+    .card-body > .table th,
+    .card-body > .table td {
+        padding: 2px;
+    }
+}
+
+// OVERALL CUSTOM
+
+.table > thead > tr > th {
+    border-top: none;
 }
 
 // get rid of type number arrows
@@ -65,9 +119,13 @@ $default-info: red;
 
 .datepicker {
     border-radius: 0;
-    padding: 25px;
+    padding: 12px;
     box-shadow: none;
     border: 1px solid $border-color;
+
+    @include media-breakpoint-down(sm) {
+        padding: 0;
+    }
 
     table {
         tr {
@@ -233,10 +291,4 @@ $default-info: red;
             left: 35px;
         }
     }
-
-    // @include from($breakpoint-sm) {
-    //     .calendar {
-    //         margin-right: 20px !important;
-    //     }
-    // }
 }
