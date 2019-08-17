@@ -3,18 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Create Goal</div>
 
                 <div class="card-body">
+
+                    <h2>Create Goal</h2>
                     
                     <form method="POST" action="{{route('goals.store')}}" autocomplete="off">
                         {{ csrf_field() }}
 
                         <div class="form-group">
                             <label for="year">Year</label>
-                            <input readonly type="text" name="year" class="form-control" value={{$goal->year}}>
+                            <input  type="text" name="year" class="form-control" value={{$goal->year}}>
                         </div>
 
                         <div class="form-group">
