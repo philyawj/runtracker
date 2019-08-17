@@ -15,8 +15,8 @@
                     <table class="table table-sm">
                             <thead>
                                 <tr>
-                                    <th scope="col fit">week</th>
-                                    <th scope="col">progress</th>
+                                    <th scope="col" class="fit">week</th>
+                                    <th scope="col" class="">progress</th>
                                     <th scope="col">goal</th>
                                     <th scope="col">done</th>
                                 </tr>
@@ -40,11 +40,11 @@
 
                                         <td>
                                             @if($goal->miles > 0)
-                                            <div class="progress">
+                                            <div class="progress mr-3">
                                                 <div class="progress-bar" role="progressbar" style="width: {{($goal->miles_done/$goal->miles)*100}}%" aria-valuenow="{{$goal->miles_done/$goal->miles}}" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                             @else 
-                                            <div class="progress">
+                                            <div class="progress mr-3">
                                                 <div class="progress-bar" role="progressbar" style="width: {{0}}%" aria-valuenow="{{0}}" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                             @endif

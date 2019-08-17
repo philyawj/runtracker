@@ -78,7 +78,7 @@ body {
 
     .card-body,
     .card-header {
-        padding: 10px;
+        padding: 14px;
     }
     .card-body > .table th,
     .card-body > .table td {
@@ -122,14 +122,14 @@ textarea {
     vertical-align: middle;
 }
 
-.table td,
-.table th {
-    text-align: center;
-}
+// .table td,
+// .table th {
+//     text-align: center;
+// }
 
 .fit {
     white-space: nowrap;
-    width: 21%;
+    width: 15%;
 }
 
 // get rid of type number arrows
