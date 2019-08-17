@@ -11136,6 +11136,10 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.this-goal-week {
+  background-color: #5f5d5d;
+}
+
 .datepicker {
   border-radius: 0;
   padding: 12px;

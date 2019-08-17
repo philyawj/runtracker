@@ -103,7 +103,7 @@ class GoalController extends Controller
 
             if($find_miles === null) {
                 $o->week_of_year = $week;
-                $o->miles = 'not set';
+                $o->miles = '-';
                 $start_date = Carbon::now();
                 $start_date->setISODate($which_year,$week);
                 $o->startofweek = $start_date->startOfWeek()->format('n/j');
