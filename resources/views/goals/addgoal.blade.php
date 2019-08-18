@@ -15,7 +15,7 @@
 
                         <div class="form-group">
                             <label for="year">Year</label>
-                            <input  type="text" name="year" class="form-control" value={{$goal->year}}>
+                            <input readonly type="text" name="year" class="form-control" value={{$goal->year}}>
                         </div>
 
                         <div class="form-group">
