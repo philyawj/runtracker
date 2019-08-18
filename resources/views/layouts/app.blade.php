@@ -79,15 +79,31 @@
             data: {
                 labels: ['-5', '-4', '-3', '-2', '-1', '0'],
                 datasets: [{
-                    // label: 'My First dataset',
+                    label: 'Miles',
                     backgroundColor: 'rgb(188, 137, 220)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: [10, 5, 2, 20, 30, 100]
+                    data: [10, 5, 2, 20, 30, 31]
                 }]
             },
 
             // Configuration options go here
-            options: {}
+            options: {
+                legend: {display: false},
+                scales: {
+                    xAxes: [{ 
+                        gridLines: {
+                            display: false,
+                        },
+                        ticks: {
+                            fontColor: "#FFF",
+                        },
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: "#FFF",
+                        },
+                    }],
+                }
+            }
         });
     </script>
 </body>
