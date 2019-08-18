@@ -10,7 +10,46 @@
 
                     <h2>Dashboard</h2>
 
-                    <p>Miles this week: {{$milesthisweek}}</p>
+                    <div class="row text-center mb-3">
+
+                    <div class="col-6 col-md-3 mb-3 mb-md-0">
+                        <div class="card card-darker h-100">
+                            <div class="card-body">
+                                <h5>This Week:</h5>
+                                <h4>{{$milesthisweek}}</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-3 mb-md-0">
+                        <div class="card card-darker h-100">
+                            <div class="card-body">
+                                <h5>This Month:</h5>
+                                <h4>{{$milesthismonth}}</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <div class="card card-darker h-100">
+                            <div class="card-body">
+                                <h5>This Year:</h5>
+                                <h4>{{$miles_this_year}}</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <div class="card card-darker h-100">
+                            <div class="card-body">
+                                <h5>All Time:</h5>
+                                <h4>{{$miles_all_time}}</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+
                     @if(is_null($thisweekgoal)) 
                         <p><a class="btn btn-sm btn-primary" href="{{route('goals.create', [$current_year,$current_week])}}">Button to set goal for this week</a></p>
                         
@@ -23,10 +62,6 @@
                     @endif
                     
                     
-                  
-                    <p>Miles this month: {{$milesthismonth}}</p>
-                    <p>Miles this year: {{$miles_this_year}}</p>
-                    <p>Miles all time: {{$miles_all_time}}</p>
                     
 
                     <h5>Last 3 Runs</h5>

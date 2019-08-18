@@ -152,6 +152,23 @@ input[type="number"]::-webkit-outer-spin-button {
     background-color: #5f5d5d;
 }
 
+.card-darker {
+    background-color: #191c20;
+}
+
+.card-darker h4 {
+    margin-bottom: 0;
+}
+
+@include media-breakpoint-down(sm) {
+    .card-darker h5 {
+        font-size: 16px;
+    }
+    .card-darker h4 {
+        font-size: 24px;
+    }
+}
+
 // BOOTSTRAP DATEPICKER CUSTOM STYLES
 // COMING BACK TO FLESH OUT LATER
 
