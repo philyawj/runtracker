@@ -15,7 +15,7 @@
                     <div class="col-6 col-md-3 mb-3 mb-md-0">
                         <div class="card card-darker h-100">
                             <div class="card-body">
-                                <h5>This Week:</h5>
+                                <h5>Week:</h5>
                                 <h4>{{$milesthisweek}}</h4>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                     <div class="col-6 col-md-3 mb-3 mb-md-0">
                         <div class="card card-darker h-100">
                             <div class="card-body">
-                                <h5>This Month:</h5>
+                                <h5>Month:</h5>
                                 <h4>{{$milesthismonth}}</h4>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="col-6 col-md-3">
                         <div class="card card-darker h-100">
                             <div class="card-body">
-                                <h5>This Year:</h5>
+                                <h5>Year:</h5>
                                 <h4>{{$miles_this_year}}</h4>
                             </div>
                         </div>
