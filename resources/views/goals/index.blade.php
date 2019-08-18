@@ -10,7 +10,7 @@
             
                 <h2>{{$year}} Goals</h2>
                 @if(Session::has('message'))
-                    <p class="alert alert-warning">{{ Session::get('message') }}</p>
+                    <p class="alert alert-primary">{{ Session::get('message') }}</p>
                 @endif
                     <table class="table table-sm">
                             <thead>

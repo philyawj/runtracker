@@ -19,5 +19,3 @@ create 404 page
 dashboard include chart with last 6 weeks
 
 datepicker final styling for colors
-
-add validation to goal year and week to make sure they are the same as the provided url
