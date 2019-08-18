@@ -17,5 +17,8 @@ clean up routing where people go after different actions
 create 404 page
 
 dashboard include chart with last 6 weeks
+- pipe in real data
+- separate js files to only show this on dashboard
 
 datepicker final styling for colors
+

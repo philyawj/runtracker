@@ -73,6 +73,9 @@
                     
 
                     <h3>Last 6 Weeks</h3>
+
+                    <canvas id="myChart"></canvas>
+
                     <table class="table">
                             <thead>
                                 <tr>
