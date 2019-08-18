@@ -26,6 +26,9 @@
                         <div class="form-group">
                             <label for="miles">Miles</label>
                             <input type="tel" maxlength="3" name="miles" class="form-control" value={{$goal->miles}}>
+                            @error('miles')
+                                <div class="error-text">{{ $message }}</div>
+                            @enderror
                         </div>
                        
 
@@ -43,22 +46,6 @@
                             <input type="submit" class="btn btn-danger" value="Delete Goal">
                         </div>
                     </form>
-
-                    @if(count($errors) > 0)
-
-                    <div class="alert alert-danger">
-                        <ul>
-
-                            @foreach($errors->all() as $error)
-
-                                <li>{{$error}}</li>
-
-                            @endforeach
-
-                        </ul>
-                    </div>
-
-                    @endif
                     
                 </div>
             </div>
