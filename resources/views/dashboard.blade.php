@@ -70,7 +70,7 @@
                     @endif
                 
 
-                    <h3>Last 6 Weeks</h3>
+                    <h3>Weekly Miles</h3>
 
                     <canvas id="myChart"></canvas>
 
