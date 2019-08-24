@@ -9,6 +9,9 @@
                 <div class="card-body">
 
                 <h2>Run History</h2>
+                @if(Session::has('message'))
+                    <p class="alert alert-primary">{{ Session::get('message') }}</p>
+                @endif
 
                     <table class="table">
                             <thead>

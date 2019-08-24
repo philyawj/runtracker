@@ -2,13 +2,10 @@ fix this error by getting rid of vue: Vue warn]: Cannot find element: #app
 delete @import url("https://fonts.googleapis.com/css?family=Nunito"); in app.scss to prevent @charset "UTF-8"; error
 
 
-
 create admin panel to see every user. last login date. active users this week/month. last 10 runs across all users.
 
 reskin entire product
-    - better display of error messages
-
-add flash messages between screens
+    - improve display of flash messages
 
 refactor / clean up variable names everywhere
 
@@ -17,4 +14,3 @@ clean up routing where people go after different actions
 create 404 page
 
 datepicker final styling for colors
-

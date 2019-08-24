@@ -8,6 +8,8 @@ use App\User;
 use Auth;
 use Carbon\Carbon;
 use App\Http\Requests\RunRequest;
+use Session;
+
 class RunController extends Controller
 {
     /**
@@ -80,10 +82,9 @@ class RunController extends Controller
         //
         $this->process_run($request);
 
-        // dd($this->input);
-
         Run::create($this->input);
 
+        Session::flash('message', 'Run created.');
         return redirect('/dashboard/runs');
     }
 
@@ -134,6 +135,7 @@ class RunController extends Controller
 
         $run->update($this->input);
 
+        Session::flash('message', 'Run edited.');
         return redirect('/dashboard/runs');
     }
 
@@ -147,6 +149,7 @@ class RunController extends Controller
     {   
         $run->delete();
 
+        Session::flash('message', 'Run deleted.');
         return redirect('dashboard/runs');
     }
 }

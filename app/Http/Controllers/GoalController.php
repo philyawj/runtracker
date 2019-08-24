@@ -68,38 +68,12 @@ class GoalController extends Controller
             return $row->sum('miles');
         });
 
-        // dd($grouped_miles);
-        // dd($goals);
-
-        // $miles_done_by_week;
-        // foreach($grouped_miles as $miles_done) {
-            
-        // }
-        // dd($miles_done_by_week);
-
         foreach($this->weeks as $week) {
             $o = new \stdClass();
 
             $find_miles = $goals->filter(function($item) use ($week) {
                 return $item->week_of_year == $week;
             })->first();
-
-            // dd($find_miles);
-            // dd($grouped_miles);
-            // $find_miles_done = $grouped_miles->filter(function($item) use ($week){
-            //     dd($item);
-            //     return $item;
-                
-            // });
-            // dd($find_miles);
-            
-            // if(isset($grouped_miles[$week])) {
-            //     // dd($grouped_miles[$week]);
-            //     $o->miles_done = $grouped_miles[$week];
-            // } else {
-            //     // $grouped_miles[$week] = 0; 
-            //     $o->miles_done = 0;
-            // }
 
             if($find_miles === null) {
                 $o->week_of_year = $week;
@@ -111,10 +85,8 @@ class GoalController extends Controller
                 $end_date->setISODate($which_year,$week);
                 $o->endofweek = $end_date->endOfWeek()->format('n/j');
                 if(isset($grouped_miles[$week])) {
-                    // dd($grouped_miles[$week]);
                     $o->miles_done = $grouped_miles[$week];
                 } else {
-                    // $grouped_miles[$week] = 0; 
                     $o->miles_done = 0;
                 }
                 
@@ -129,18 +101,14 @@ class GoalController extends Controller
                 $end_date->setISODate($which_year,$week);
                 $find_miles->endofweek = $end_date->endOfWeek()->format('n/j');
                 if(isset($grouped_miles[$week])) {
-                    // dd($grouped_miles[$week]);
                     $find_miles->miles_done = $grouped_miles[$week];
                 } else {
-                    // $grouped_miles[$week] = 0; 
                     $find_miles->miles_done = 0;
                 }
                 
                 $this->combined_goals->push($find_miles);
-                // dd($find_miles);
             }
         }
-        // dd($grouped_miles);
     }
 
     public function select_weekly_goals($arg) {
@@ -197,6 +165,7 @@ class GoalController extends Controller
 
         Goal::create($input);
 
+        Session::flash('message', 'Goal created.');
         return redirect('/dashboard/goals');
     }
 
@@ -264,6 +233,7 @@ class GoalController extends Controller
 
         $goal->update($input);
 
+        Session::flash('message', 'Goal edited.');
         return redirect('/dashboard/goals');
     }
 
@@ -277,6 +247,7 @@ class GoalController extends Controller
     {
         $goal->delete();
 
+        Session::flash('message', 'Goal deleted.');
         return redirect('dashboard/goals');
     }
 
