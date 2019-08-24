@@ -165,7 +165,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 $border-color: #7d7d7d;
 $default-white: #fff;
-$default-primary: #7774e7;
+$default-primary: #bc89dc;
 $default-info: red;
 
 .datepicker {
@@ -347,4 +347,59 @@ $default-info: red;
             left: 35px;
         }
     }
+}
+
+.datepicker table tr td.today,
+.datepicker table tr td.today:hover,
+.datepicker table tr td.today.disabled,
+.datepicker table tr td.today.disabled:hover {
+    background-color: #f07587;
+    background-image: -moz-linear-gradient(to bottom, #f07587, #f07587);
+    background-image: -ms-linear-gradient(to bottom, #f07587, #f07587);
+    background-image: -webkit-gradient(
+        linear,
+        0 0,
+        0 100%,
+        from(#f07587),
+        to(#f07587)
+    );
+    background-image: -webkit-linear-gradient(to bottom, #f07587, #f07587);
+    background-image: -o-linear-gradient(to bottom, #f07587, #f07587);
+    background-image: linear-gradient(to bottom, #f07587, #f07587);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f07587', endColorstr='#f07587', GradientType=0);
+    border-color: #f07587 #f07587 #f07587;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    color: #fff;
+}
+
+.datepicker table tr td.today:hover:hover {
+    color: #fff;
+}
+
+.datepicker table tr td.active,
+.datepicker table tr td.active:hover,
+.datepicker table tr td.active.disabled,
+.datepicker table tr td.active.disabled:hover {
+    background-color: #bc89dc;
+    background-image: -moz-linear-gradient(to bottom, #bc89dc, #bc89dc);
+    background-image: -ms-linear-gradient(to bottom, #bc89dc, #bc89dc);
+    background-image: -webkit-gradient(
+        linear,
+        0 0,
+        0 100%,
+        from(#bc89dc),
+        to(#bc89dc)
+    );
+    background-image: -webkit-linear-gradient(to bottom, #bc89dc, #bc89dc);
+    background-image: -o-linear-gradient(to bottom, #bc89dc, #bc89dc);
+    background-image: linear-gradient(to bottom, #bc89dc, #bc89dc);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc89dc', endColorstr='#bc89dc', GradientType=0);
+    border-color: #bc89dc #bc89dc #bc89dc;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
