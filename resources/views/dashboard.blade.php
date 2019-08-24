@@ -18,7 +18,7 @@
                             <div class="card card-darker h-100">
                                 <div class="card-body">
                                     <h5>Week:</h5>
-                                    <h4>{{$milesthisweek}}</h4>
+                                    <h4>{{$miles_this_week}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                             <div class="card card-darker h-100">
                                 <div class="card-body">
                                     <h5>Month:</h5>
-                                    <h4>{{$milesthismonth}}</h4>
+                                    <h4>{{$miles_this_month}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -53,55 +53,26 @@
                     </div>
 
                     <h3>
-                        @if(!is_null($thisweekgoal))
-                            Weekly Goal: {{$thisweekgoal}} 
+                        @if(!is_null($this_week_goal))
+                            Weekly Goal: {{$this_week_goal}} 
                         @else 
                             Weekly Goal
                         @endif
                     </h3>
 
-                    @if(is_null($thisweekgoal)) 
+                    @if(is_null($this_week_goal)) 
                         <p><a class="btn btn-sm btn-primary" href="{{route('goals.create', [$current_year,$current_week])}}">Set goal</a></p>
                         
                     @else
                         <div class="progress mb-3">
-                            <div class="progress-bar" role="progressbar" style="width: {{$weeklyprogress}}%" aria-valuenow="{{$weeklyprogress}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: {{$weekly_progress}}%" aria-valuenow="{{$weekly_progress}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     @endif
-                    
-                    
-                    
+                
 
                     <h3>Last 6 Weeks</h3>
 
                     <canvas id="myChart"></canvas>
-
-                    <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">date</th>
-                                    <th scope="col">miles</th>
-                                    <th scope="col">time</th>
-                                    <th scope="col">mph</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                        
-                            @foreach($lastthreeruns as $lastthreerun)
-
-                                <tr>
-                                    <td scope="row">{{date("m/d/Y", strtotime($lastthreerun->date))}}</td>
-                                    <td>{{$lastthreerun->miles}}</td>
-                                    <td>{{date("H:i:s", $lastthreerun->seconds)}}</td>
-                                    <td>{{$lastthreerun->mph}}</td>
-                                </tr>
-
-                            @endforeach
-
-                            </tbody>
-                    </table>
-
-                    <a class="btn btn-primary" href="{{route('runs.index')}}">See more runs</a>
 
                 </div>
             </div>

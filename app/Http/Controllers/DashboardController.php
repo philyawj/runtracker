@@ -31,52 +31,36 @@ class DashboardController extends Controller
 
         $user_id = Auth::user()->id;
 
-        $milesperweek = Run::select('week_of_year', 'miles')->where('user_id', $user_id)->get();
-
-        $groupedmiles = $milesperweek->groupBy('week_of_year')->map(function ($row){
-            return $row->sum('miles');
-        });
-        // echo $groupedmiles;
-
-        $lastthreeruns = Run::all()->where('user_id', $user_id)->sortByDesc('date')->take(3);
-
         $current_year = Carbon::now()->year;
         $current_week = Carbon::now()->weekOfYear;
+        $current_month = Carbon::now()->month;
 
-        $milesthisweek = Run::where('user_id', $user_id)->where('week_of_year', $current_week)->get()->sum('miles');
-
-        // // how many miles run last month
-        // $lastweek = Carbon::now()->weekOfYear - 1;
-        // $mileslastweek = Run::all()->where('user_id', $user_id)->where('week_of_year', $lastweek)->sum('miles');
-
-        // how many miles run thus far this month
-        $currentmonth = Carbon::now()->month;
-        $milesthismonth = Run::all()->where('user_id', $user_id)->where('month', $currentmonth)->sum('miles');
-
-        // how many miles run thus far this year
-        $current_year = Carbon::now()->year;
-        $miles_this_year = Run::all()->where('user_id', $user_id)->where('year', $current_year)->sum('miles');
-
-        // miles all time
+        $miles_this_week = Run::where('user_id', $user_id)->where('week_of_year', $current_week)->get()->sum('miles');
+        $miles_this_month = Run::where('user_id', $user_id)->where('month', $current_month)->get()->sum('miles');
+        $miles_this_year = Run::where('user_id', $user_id)->where('year', $current_year)->get()->sum('miles');
         $miles_all_time = Run::all()->where('user_id', $user_id)->sum('miles');
 
-        // how many miles run last month
-        // $lastmonth = Carbon::now()->month - 1;
-        // $mileslastmonth = Run::all()->where('user_id', $user_id)->where('month', $lastmonth)->sum('miles');
+        $this_week_goal = Goal::select('miles')->where('user_id', $user_id)->where('week_of_year', $current_week)->first();
+        $this_week_goal = $this_week_goal['miles'];
 
-        $thisweekgoal = Goal::select('miles')->where('user_id', $user_id)->where('week_of_year', $current_week)->first();
-        $thisweekgoal = $thisweekgoal['miles'];
-
-        if(isset($thisweekgoal)){
-            $weeklyprogress = round(($milesthisweek / $thisweekgoal) * 100, 2);
-            if($weeklyprogress > 100) {
-                $weeklyprogress = 100;
+        if(isset($this_week_goal)){
+            $weekly_progress = round(($miles_this_week / $this_week_goal) * 100, 2);
+            if($weekly_progress > 100) {
+                $weekly_progress = 100;
             }
         } else {
             // dummy value to prevent error
-            $weeklyprogress = 1;
+            $weekly_progress = 1;
         }
+
+        // data for last 6 weeks chart
+        $miles_one_week_ago = Run::where('user_id', $user_id)->where('week_of_year', $current_week - 1)->get()->sum('miles');
+        $miles_two_weeks_ago = Run::where('user_id', $user_id)->where('week_of_year', $current_week - 2)->get()->sum('miles');
+        $miles_three_weeks_ago = Run::where('user_id', $user_id)->where('week_of_year', $current_week - 3)->get()->sum('miles');
+        $miles_four_weeks_ago = Run::where('user_id', $user_id)->where('week_of_year', $current_week - 4)->get()->sum('miles');
+        $miles_five_weeks_ago = Run::where('user_id', $user_id)->where('week_of_year', $current_week - 5)->get()->sum('miles');
+        $six_week_chart_miles = [$miles_five_weeks_ago, $miles_four_weeks_ago, $miles_three_weeks_ago, $miles_two_weeks_ago, $miles_one_week_ago];
         
-        return view('dashboard', compact('lastthreeruns'), ['milesthisweek' => $milesthisweek, 'milesthismonth' => $milesthismonth, 'miles_this_year' => $miles_this_year, 'miles_all_time' => $miles_all_time, 'thisweekgoal' => $thisweekgoal, 'current_week' => $current_week, 'current_year' => $current_year, 'weeklyprogress' => $weeklyprogress]);
+        return view('dashboard', ['six_week_chart_miles' => $six_week_chart_miles, 'miles_this_week' => $miles_this_week, 'miles_this_month' => $miles_this_month, 'miles_this_year' => $miles_this_year, 'miles_all_time' => $miles_all_time, 'this_week_goal' => $this_week_goal, 'current_week' => $current_week, 'current_year' => $current_year, 'weekly_progress' => $weekly_progress]);
     }
 }

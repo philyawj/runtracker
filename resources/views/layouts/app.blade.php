@@ -81,7 +81,7 @@
                 datasets: [{
                     label: 'Miles',
                     backgroundColor: 'rgb(188, 137, 220)',
-                    data: [10, 5, 2, 20, 30, 31]
+                    data: [{{implode(', ', $six_week_chart_miles)}}]
                 }]
             },
 
