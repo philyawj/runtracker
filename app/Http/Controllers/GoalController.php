@@ -60,9 +60,7 @@ class GoalController extends Controller
 
     public function init_weekly_goals($which_year, $goals) {
 
-        // dd($goals);
         $miles_per_week = Run::select('year', 'week_of_year', 'miles')->where('user_id', $this->user_id)->where('year', $which_year)->get();
-        // dd($miles_per_week);
 
         $grouped_miles = $miles_per_week->groupBy('week_of_year')->map(function ($row){
             return $row->sum('miles');
@@ -90,9 +88,7 @@ class GoalController extends Controller
                     $o->miles_done = 0;
                 }
                 
-                
                 $this->combined_goals->push($o);
-                // dd($o);
             } else {
                 $start_date = Carbon::now();
                 $start_date->setISODate($which_year,$week);

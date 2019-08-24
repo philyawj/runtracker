@@ -3,13 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center mt-5">
-        <div class="col-md-5">
+        <div class="col-7 col-md-6 col-lg-5 col-xl-4">
             <div class="card">
         
                 <div class="card-body text-center">
-                    <h1>Run Tracker</h1>
-                    <p class="lead">Welcome to Run Tracker. Create a new account or sign back in by clicking the button below.</p>
-                    <a href="{{url('login/google')}}" class="btn btn-primary">
+                    <h1 class="mb-4">Track Your Run</h1>
+                    <a href="{{url('login/google')}}" class="btn btn-primary mb-1">
                         Login with Google
                     </a>
                 </div>

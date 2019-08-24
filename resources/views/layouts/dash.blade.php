@@ -94,6 +94,7 @@
                     }],
                     yAxes: [{
                         ticks: {
+                            min: 0, 
                             fontColor: "#FFF",
                         },
                     }],

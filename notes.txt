@@ -6,6 +6,7 @@ create admin panel to see every user. last login date. active users this week/mo
 
 reskin entire product
     - improve display of flash messages
+    - change homescreen
 
 refactor / clean up variable names everywhere
 
