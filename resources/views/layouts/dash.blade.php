@@ -68,5 +68,38 @@
         </main>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['5', '4', '3', '2', '1', '0'],
+                datasets: [{
+                    label: 'Miles',
+                    backgroundColor: 'rgb(188, 137, 220)',
+                    data: [{{implode(', ', $six_week_chart_miles)}}]
+                }]
+            },
+            options: {
+                legend: {display: false},
+                scales: {
+                    xAxes: [{ 
+                        gridLines: {
+                            display: false,
+                        },
+                        ticks: {
+                            fontColor: "#FFF",
+                        },
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: "#FFF",
+                        },
+                    }],
+                }
+            }
+        });
+    </script>
 </body>
 </html>

@@ -59,7 +59,7 @@ class DashboardController extends Controller
         $miles_three_weeks_ago = Run::where('user_id', $user_id)->where('week_of_year', $current_week - 3)->get()->sum('miles');
         $miles_four_weeks_ago = Run::where('user_id', $user_id)->where('week_of_year', $current_week - 4)->get()->sum('miles');
         $miles_five_weeks_ago = Run::where('user_id', $user_id)->where('week_of_year', $current_week - 5)->get()->sum('miles');
-        $six_week_chart_miles = [$miles_five_weeks_ago, $miles_four_weeks_ago, $miles_three_weeks_ago, $miles_two_weeks_ago, $miles_one_week_ago];
+        $six_week_chart_miles = [$miles_five_weeks_ago, $miles_four_weeks_ago, $miles_three_weeks_ago, $miles_two_weeks_ago, $miles_one_week_ago, $miles_this_week];
         
         return view('dashboard', ['six_week_chart_miles' => $six_week_chart_miles, 'miles_this_week' => $miles_this_week, 'miles_this_month' => $miles_this_month, 'miles_this_year' => $miles_this_year, 'miles_all_time' => $miles_all_time, 'this_week_goal' => $this_week_goal, 'current_week' => $current_week, 'current_year' => $current_year, 'weekly_progress' => $weekly_progress]);
     }
