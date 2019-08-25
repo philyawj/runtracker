@@ -16,7 +16,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="fit">week</th>
-                                    <th scope="col" class="">progress</th>
+                                    <th scope="col">progress</th>
                                     <th scope="col">goal</th>
                                     <th scope="col">done</th>
                                 </tr>
@@ -58,27 +58,6 @@
 
                             </tbody>
                     </table>
-
-                    <!-- <form method="POST" action="{{route('goals.reroute')}}" autocomplete="off" class="form-group">
-                        {{ csrf_field() }}
-
-                        <select class="form-control" name="gotoyear" id="">
-                            @foreach($goal_year_array as $goalyear)
-                            
-                                @if($goalyear === $year)
-                                    <option selected="selected" value={{$goalyear}}>{{$goalyear}}</option>
-                                @else
-                                    <option value={{$goalyear}}>{{$goalyear}}</option>
-                                @endif
-
-                            @endforeach
-                        </select>
-                        
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-sm" value="Go to goal year">
-                        </div>
-
-                    </form> -->
 
                     <form method="POST" action="{{route('goals.reroute')}}" autocomplete="off" class="form-group">
                         {{ csrf_field() }}

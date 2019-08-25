@@ -41,9 +41,7 @@ class GoalController extends Controller
     }
 
     public function init_dropdowns() {
-        // start by finding the first year the current user has set a goal
-        $first_goal_year = Goal::select('year')->where('user_id', $this->user_id)->orderBy('year', 'asc')->first();
-        $first_goal_year = $first_goal_year['year'];
+        $first_goal_year = 2019;
 
         // one year in future
         $last_goal_year = $this->current_year + 1;
