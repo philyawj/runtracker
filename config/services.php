@@ -47,7 +47,8 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'https://trackyour.run/login/google/callback',
+        // 'redirect' => 'https://trackyour.run/login/google/callback',
+        'redirect' => 'http://localhost/runtracker/public/login/google/callback',
     ],
 
 ];
