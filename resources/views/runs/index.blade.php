@@ -19,7 +19,7 @@
                                     <th scope="col">date</th>
                                     <th scope="col">miles</th>
                                     <th scope="col">time</th>
-                                    <th scope="col">mph</th>
+                                    <th scope="col">pace</th>
                                     <th class="table-hide-sm" scope="col">notes</th>
                                 </tr>
                             </thead>
@@ -32,7 +32,7 @@
                                     <td><a href="{{route('runs.edit', $run->id)}}">{{date("m/d/Y", strtotime($run->date))}}</a></td>
                                     <td>{{$run->miles}}</td>
                                     <td>{{date("H:i:s", $run->seconds)}}</td>
-                                    <td>{{$run->mph}}</td>
+                                    <td>{{$run->pace}}</td>
                                     <td class="table-hide-sm">{{$run->notes}}</td>
                                 </tr>
 

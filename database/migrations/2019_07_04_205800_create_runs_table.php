@@ -23,7 +23,7 @@ class CreateRunsTable extends Migration
             $table->integer('week_of_year');
             $table->decimal('miles', 5, 2);
             $table->integer('seconds');
-            $table->decimal('mph', 5, 2);
+            $table->string('pace');
             $table->text('notes')->nullable();
         });
     }

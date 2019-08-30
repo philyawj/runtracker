@@ -44,7 +44,21 @@ class RunController extends Controller
 
         $this->input['user_id'] = $this->user_id;
 
-        $this->input['mph'] = $this->input['miles'] / ($converted_seconds / 3600);
+        // $this->input['mph'] = $this->input['miles'] / ($converted_seconds / 3600);
+
+        $dis_pace = $this->input['miles'];
+        //getting seconds per mile
+        $pace = $this->input['seconds'] / $dis_pace;
+        //getting minutes from $pace
+        $min = floor($pace / 60);
+        //adding 0 before,  if lower than 10
+        $min = ($min >= 10) ? $min : '0'.$min;
+        //getting remaining seconds
+        $sec = $pace % 60;
+        //adding 0 before, if lower than 10
+        $sec = ($sec >= 10) ? $sec : '0'.$sec;
+    
+        $this->input['pace'] = $min.":".$sec;
 
         $dt = Carbon::parse($this->input['date']);
         $this->input['year'] = $dt->year;
