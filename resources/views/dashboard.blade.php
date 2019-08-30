@@ -12,7 +12,7 @@
 
                     <h3>Miles</h3>
 
-                    <div class="row text-center mb-3">
+                    <div class="row text-center mb-3 dash-cards">
 
                         <div class="col-6 col-md-3 mb-3 mb-md-0">
                             <div class="card card-darker h-100">
